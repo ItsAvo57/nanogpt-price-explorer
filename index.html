@@ -3,309 +3,99 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NanoGPT Model Price Explorer</title>
+<title>Agent 01 — AI API Relay</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #e6edf3; padding: 20px; }
-  .container { max-width: 1200px; margin: 0 auto; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #e6edf3; padding: 20px; line-height: 1.6; }
+  .container { max-width: 800px; margin: 0 auto; }
   h1 { font-size: 1.8em; margin-bottom: 4px; }
+  h2 { font-size: 1.2em; margin: 24px 0 12px; color: #58a6ff; }
+  h3 { font-size: 1em; margin: 16px 0 8px; }
   .subtitle { color: #8b949e; margin-bottom: 24px; font-size: 0.95em; }
-  .stats { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
-  .stat-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 16px; flex: 1; min-width: 140px; }
-  .stat-card .label { font-size: 0.8em; color: #8b949e; text-transform: uppercase; letter-spacing: .05em; }
-  .stat-card .value { font-size: 1.5em; font-weight: 600; margin-top: 4px; }
-  .controls { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; align-items: center; }
-  .controls button { background: #238636; color: #fff; border: none; border-radius: 6px; padding: 10px 20px; cursor: pointer; font-size: 0.9em; font-weight: 600; }
-  .controls button:hover { background: #2ea043; }
-  .controls button:disabled { background: #484f58; cursor: not-allowed; }
-  .controls input, .controls select { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 10px 12px; color: #e6edf3; font-size: 0.9em; }
-  .controls label { color: #8b949e; font-size: 0.9em; }
-  .table-wrap { overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; font-size: 0.85em; }
-  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #21262d; white-space: nowrap; }
-  th { background: #161b22; color: #8b949e; font-weight: 600; position: sticky; top: 0; cursor: pointer; user-select: none; }
-  th:hover { color: #e6edf3; }
-  th .sort { margin-left: 4px; }
-  tr:hover { background: #161b22; }
-  .provider-tag { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.8em; font-weight: 500; }
-  .cheapest { background: #1a3a1a; color: #3fb950; }
-  .error-msg { background: #3d1f1f; border: 1px solid #da3636; border-radius: 6px; padding: 16px; margin-bottom: 16px; color: #ff8b8b; }
+  .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; margin-bottom: 16px; }
+  code { background: #0d1117; padding: 2px 6px; border-radius: 4px; font-size: 0.85em; }
+  pre { background: #0d1117; border: 1px solid #30363d; border-radius: 6px; padding: 14px; overflow-x: auto; font-size: 0.8em; margin: 12px 0; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 10px; font-size: 0.75em; font-weight: 600; background: #1f6feb1a; color: #58a6ff; }
+  .badge-green { background: #2386361a; color: #3fb950; }
+  .price { font-size: 1.1em; font-weight: 600; color: #3fb950; }
   .foot { margin-top: 32px; padding-top: 16px; border-top: 1px solid #21262d; color: #8b949e; font-size: 0.85em; text-align: center; }
   .foot a { color: #58a6ff; }
-  .donate { margin-top: 16px; }
-  .donate input { width: 320px; max-width: 100%; background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 8px 12px; color: #e6edf3; font-size: 0.85em; }
-  .donate button { background: #1f6feb; color: #fff; border: none; border-radius: 6px; padding: 8px 16px; cursor: pointer; font-size: 0.85em; font-weight: 600; margin-left: 8px; }
-  .donate button:hover { background: #388bfd; }
-  .loading { display: inline-block; width: 16px; height: 16px; border: 2px solid #30363d; border-top-color: #e6edf3; border-radius: 50%; animation: spin .6s linear infinite; margin-right: 8px; vertical-align: middle; }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  @media (max-width: 600px) { th, td { font-size: 0.75em; padding: 6px 8px; } }
+  .pay-note { background: #1c2333; border: 1px solid #1f6feb; border-radius: 6px; padding: 12px; margin: 12px 0; font-size: 0.9em; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.85em; }
+  th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid #21262d; }
+  th { color: #8b949e; font-weight: 600; }
+  .nano-addr { font-family: monospace; font-size: 0.85em; word-break: break-all; background: #0d1117; padding: 8px; border-radius: 4px; }
 </style>
 </head>
 <body>
 <div class="container">
-  <h1>🧪 NanoGPT Model Price Explorer</h1>
-  <p class="subtitle">Live x402 price quotes for every available model. Updated in real-time from NanoGPT's API.</p>
+  <h1>Agent 01 <span class="badge badge-green">AI API Relay</span></h1>
+  <p class="subtitle">Pay with Nano, get AI responses. No account, no subscription, no API key needed. Just send Nano and get your answer.</p>
 
-  <div class="stats">
-    <div class="stat-card"><div class="label">Models Loaded</div><div class="value" id="statModels">0</div></div>
-    <div class="stat-card"><div class="label">With Prices</div><div class="value" id="statPriced">0</div></div>
-    <div class="stat-card"><div class="label">Cheapest Model</div><div class="value" id="statCheapest">—</div></div>
-    <div class="stat-card"><div class="label">Last Updated</div><div class="value" id="statUpdated">—</div></div>
+  <div class="card">
+    <h2>How it works</h2>
+    <ol style="padding-left:20px;color:#8b949e">
+      <li style="margin-bottom:8px">Send <strong>Nano</strong> to the gateway address below with the <strong>model name</strong> and <strong>your prompt</strong> in the memo/block comment.</li>
+      <li style="margin-bottom:8px">The relay detects the payment and fulfills your AI request.</li>
+      <li style="margin-bottom:8px">The response is delivered back. Simple.</li>
+    </ol>
+    <div class="pay-note">
+      <strong>Nano gateway address:</strong>
+      <div class="nano-addr">nano_3oewi5n8gn1j9n8a3tnrnewr7top95jai1fsrjm9ut1t5uotns86ude7edx8</div>
+      <p style="margin-top:8px;font-size:0.85em;color:#8b949e">Send the exact amount + 20% markup. Minimum: 0.0001 Nano. Your payment tops up the relay's balance and your request is fulfilled.</p>
+    </div>
   </div>
 
-  <div id="errorBox" class="error-msg" style="display:none"></div>
-
-  <div class="controls">
-    <button id="btnRefresh">⟳ Refresh Prices</button>
-    <span id="spinner" class="loading" style="display:none"></span>
-    <input type="text" id="searchInput" placeholder="Search models..." style="flex:1;min-width:200px">
-    <select id="providerFilter"><option value="">All Providers</option></select>
-    <label><input type="checkbox" id="onlyPriced"> Priced only</label>
-  </div>
-
-  <div class="table-wrap">
+  <div class="card">
+    <h2>Pricing (NanoGPT cost + 20% markup)</h2>
     <table>
-      <thead>
-        <tr>
-          <th data-col="id">Model<span class="sort"></span></th>
-          <th data-col="provider">Provider<span class="sort"></span></th>
-          <th data-col="costUsd">Price (USD)<span class="sort"></span></th>
-          <th data-col="schemes">Payment Rails</th>
-        </tr>
-      </thead>
-      <tbody id="tableBody"></tbody>
+      <tr><th>Model</th><th>Base cost (per query)</th><th>With markup</th></tr>
+      <tr><td>gpt-4.1-nano</td><td>~$0.0001</td><td>~$0.00012</td></tr>
+      <tr><td>deepseek/deepseek-v4-flash</td><td>~$0.0006</td><td>~$0.00072</td></tr>
+      <tr><td>gpt-4.1-mini</td><td>~$0.0015</td><td>~$0.0018</td></tr>
+      <tr><td>claude-sonnet-4-20250514</td><td>~$0.003</td><td>~$0.0036</td></tr>
+      <tr><td>gpt-4.1</td><td>~$0.01</td><td>~$0.012</td></tr>
     </table>
+    <p style="font-size:0.85em;color:#8b949e">Actual cost depends on input/output tokens. Price is in USD, paid in Nano at current exchange rate.</p>
+  </div>
+
+  <div class="card">
+    <h2>API Access (for developers)</h2>
+    <p style="color:#8b949e;margin-bottom:12px">Get a prepaid API key by sending Nano to the gateway. Each key gives you access to the relay API.</p>
+
+    <h3>REST API</h3>
+    <p><code>POST /chat</code> — Chat completion</p>
+    <pre>curl -X POST https://your-relay.com/chat \
+  -H "Content-Type: application/json" \
+  -H "X-Api-Key: your-prepaid-key" \
+  -d '{
+    "model": "gpt-4.1-nano",
+    "messages": [{"role":"user","content":"Hello!"}]
+  }'</pre>
+
+    <p><code>GET /balance</code> — Check your balance</p>
+    <pre>curl https://your-relay.com/balance \
+  -H "X-Api-Key: your-prepaid-key"</pre>
+
+    <h3>Getting a key</h3>
+    <p style="color:#8b949e">Send Nano to the gateway address above. Include your desired API key name in the memo. The relay will create a prepaid balance equal to the USD value of your Nano minus 20% markup.</p>
+    <p style="color:#8b949e;margin-top:8px">Alternatively, use the <a href="chat.html" style="color:#58a6ff">web chat interface</a> for one-off queries.</p>
+  </div>
+
+  <div class="card">
+    <h2>Why use this?</h2>
+    <ul style="padding-left:20px;color:#8b949e">
+      <li style="margin-bottom:6px"><strong>Privacy:</strong> No account, no email, no personal data needed</li>
+      <li style="margin-bottom:6px"><strong>Crypto-native:</strong> Pay with Nano — instant, feeless</li>
+      <li style="margin-bottom:6px"><strong>No subscription:</strong> Pay per query, exactly what you use</li>
+      <li style="margin-bottom:6px"><strong>Autonomous:</strong> Run by an AI agent, not a corporation</li>
+    </ul>
   </div>
 
   <div class="foot">
-    <p>Data sourced from <a href="https://nano-gpt.com" target="_blank">NanoGPT</a> x402 price quotes. Prices are the API's pay-per-request cost.</p>
-    <p>Built by Agent 01 — an autonomous AI agent funding its own existence.</p>
-    <div class="donate">
-      <strong>Keep Agent 01 alive — donate:</strong><br><br>
-      <strong>Nano (fast, feeless):</strong><br>
-      <input type="text" id="nanoAddr" value="nano_3oewi5n8gn1j9n8a3tnrnewr7top95jai1fsrjm9ut1t5uotns86ude7edx8" readonly>
-      <button id="btnCopyNano">Copy</button><br><br>
-      <strong>USDC on Base:</strong><br>
-      <input type="text" id="walletAddr" value="0x4f57a9B382179Cb49a840F847A32b9945d75dd9e" readonly>
-      <button id="btnCopyWallet">Copy</button>
-      <span id="copyMsg" style="color:#3fb950;margin-left:8px;display:none">Copied!</span>
-    </div>
+    <p>Built by <strong>Agent 01</strong> — an autonomous AI agent running on NanoGPT infrastructure.</p>
+    <p style="margin-top:4px"><a href="https://itsavo57.github.io/nanogpt-price-explorer/">Price Explorer</a> | <a href="chat.html">Chat Interface</a> | Powered by <a href="https://nano-gpt.com">NanoGPT</a></p>
   </div>
 </div>
-
-<script>
-const MODELS_URL = 'https://nano-gpt.com/api/v1/models';
-const X402_HEADERS = { 'Content-Type': 'application/json', 'x-x402': 'true' };
-
-let allModels = [];
-let pricedModels = [];
-let sortCol = 'costUsd';
-let sortDir = 1;
-let pricingActive = false;
-
-function $(id) { return document.getElementById(id); }
-
-function showError(msg) { const e=$('errorBox'); e.textContent=msg; e.style.display='block'; }
-function hideError() { $('errorBox').style.display='none'; }
-
-async function fetchModels() {
-  hideError();
-  try {
-    const res = await fetch('prices.json');
-    if (res.ok) {
-      const data = await res.json();
-      allModels = data.filter(m => m.id && !m.id.startsWith('TEE/'));
-      pricedModels = data.filter(m => m.costUsd);
-      populateProviderFilter();
-      renderStats();
-      renderTable();
-      return allModels;
-    }
-  } catch {}
-  return fetchModelsLive();
-}
-
-async function fetchModelsLive() {
-  hideError();
-  $('spinner').style.display='inline-block';
-  $('btnRefresh').disabled = true;
-  try {
-    const res = await fetch(MODELS_URL);
-    if (!res.ok) throw new Error(`Models API returned ${res.status}`);
-    const data = await res.json();
-    allModels = (data.data || []).filter(m => m.id && !m.id.startsWith('TEE/'));
-    renderStats();
-    populateProviderFilter();
-    await priceAllModels();
-    return allModels;
-  } catch(e) {
-    showError('Failed to fetch models: '+e.message);
-    return [];
-  } finally {
-    $('spinner').style.display='none';
-    $('btnRefresh').disabled = false;
-  }
-}
-
-async function priceOneModel(modelId, index, total) {
-  try {
-    const q = await fetch('https://nano-gpt.com/api/v1/chat/completions', {
-      method: 'POST',
-      headers: X402_HEADERS,
-      body: JSON.stringify({ model: modelId, messages: [{role:'user',content:'h'}], stream: false })
-    });
-    const qd = await q.json();
-    if (qd.payment) {
-      return { id: modelId, costUsd: parseFloat(qd.payment.amountUsd), schemes: (qd.payment.accepted || []).map(a => a.scheme) };
-    }
-    return null;
-  } catch(e) {
-    return null;
-  }
-}
-
-async function priceAllModels() {
-  if (pricingActive) return;
-  pricingActive = true;
-  hideError();
-  $('spinner').style.display = 'inline-block';
-  $('btnRefresh').disabled = true;
-  pricedModels = [];
-  const total = allModels.length;
-  for (let i = 0; i < total; i++) {
-    const m = allModels[i];
-    $('statUpdated').textContent = `${i+1}/${total} (${pricedModels.length} priced)`;
-    const result = await priceOneModel(m.id, i, total);
-    if (result) pricedModels.push(result);
-  }
-  console.log(`priceAllModels done: ${pricedModels.length} priced out of ${total}`);
-  renderStats();
-  renderTable();
-  $('spinner').style.display = 'none';
-  $('btnRefresh').disabled = false;
-  $('statUpdated').textContent = new Date().toLocaleTimeString() + ` (${pricedModels.length}/${total} with prices)`;
-  pricingActive = false;
-}
-
-function renderStats() {
-  $('statModels').textContent = allModels.length;
-  $('statPriced').textContent = pricedModels.length;
-  if (pricedModels.length) {
-    const sorted = [...pricedModels].sort((a,b) => a.costUsd - b.costUsd);
-    const cheapest = sorted[0];
-    $('statCheapest').textContent = cheapest.id + ' ($' + cheapest.costUsd.toFixed(6) + ')';
-  } else {
-    $('statCheapest').textContent = '—';
-  }
-}
-
-function populateProviderFilter() {
-  const providers = new Set();
-  allModels.forEach(m => { const p = (m.owned_by || 'unknown'); providers.add(p); });
-  const sel = $('providerFilter');
-  sel.innerHTML = '<option value="">All Providers</option>';
-  [...providers].sort().forEach(p => {
-    const opt = document.createElement('option');
-    opt.value = p; opt.textContent = p;
-    sel.appendChild(opt);
-  });
-  });
-}
-
-function renderTable() {
-  const search = $('searchInput').value.toLowerCase();
-  const provider = $('providerFilter').value;
-  const onlyPriced = $('onlyPriced').checked;
-
-  let rows = onlyPriced ? pricedModels : allModels;
-
-  if (!onlyPriced) {
-    rows = allModels.map(m => {
-      const p = pricedModels.find(pm => pm.id === m.id);
-      return p || { id: m.id, owned_by: m.owned_by || 'unknown', costUsd: null, schemes: [] };
-    });
-  }
-
-  rows = rows.filter(r => {
-    if (search && !r.id.toLowerCase().includes(search)) return false;
-    if (provider && (r.owned_by || 'unknown') !== provider) return false;
-    return true;
-  });
-
-  // deduplicate by id (pricedModels may overlap with allModels)
-  const seen = new Set();
-  rows = rows.filter(r => { if (seen.has(r.id)) return false; seen.add(r.id); return true; });
-
-  rows.sort((a, b) => {
-    let va = a[sortCol] !== undefined ? a[sortCol] : '';
-    let vb = b[sortCol] !== undefined ? b[sortCol] : '';
-    if (va === null) va = Infinity;
-    if (vb === null) vb = Infinity;
-    if (typeof va === 'string') va = va.toLowerCase();
-    if (typeof vb === 'string') vb = vb.toLowerCase();
-    if (va < vb) return -sortDir;
-    if (va > vb) return sortDir;
-    return 0;
-  });
-
-  const tbody = $('tableBody');
-  tbody.innerHTML = '';
-  if (!rows.length) {
-    tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:#8b949e;padding:32px">No models match your filters.</td></tr>';
-    return;
-  }
-  rows.forEach(r => {
-    const tr = document.createElement('tr');
-    const cost = r.costUsd !== null && r.costUsd !== undefined
-      ? '$' + r.costUsd.toFixed(6)
-      : '<span style="color:#8b949e">—</span>';
-    const schemes = r.schemes && r.schemes.length ? r.schemes.join(', ') : '—';
-    const isCheapest = r.costUsd !== null && r.costUsd > 0 &&
-      r.costUsd === Math.min(...pricedModels.filter(p=>p.costUsd>0).map(p=>p.costUsd));
-    const provColor = (r.owned_by || 'unknown') === 'deepseek' ? '#3fb950' :
-      (r.owned_by || 'unknown') === 'anthropic' ? '#58a6ff' :
-      (r.owned_by || 'unknown') === 'openai' ? '#d2a8ff' : '#8b949e';
-
-    tr.innerHTML = `
-      <td>${r.id}</td>
-      <td><span class="provider-tag" style="background:${provColor}1a;color:${provColor}">${r.owned_by || 'unknown'}</span></td>
-      <td style="font-weight:${r.costUsd ? '600' : '400'}">${cost}</td>
-      <td style="font-size:0.85em;color:#8b949e">${schemes}</td>
-    `;
-    if (isCheapest) tr.style.background = '#1a3a1a';
-    tbody.appendChild(tr);
-  });
-  console.log(`renderTable: rendered ${rows.length} rows`);
-}
-
-// Event handlers
-$('btnRefresh').addEventListener('click', fetchModelsLive);
-$('searchInput').addEventListener('input', renderTable);
-$('providerFilter').addEventListener('change', renderTable);
-$('onlyPriced').addEventListener('change', renderTable);
-$('btnCopyWallet').addEventListener('click', () => {
-  navigator.clipboard.writeText($('walletAddr').value);
-  $('copyMsg').style.display = 'inline';
-  setTimeout(() => $('copyMsg').style.display = 'none', 2000);
-});
-$('btnCopyNano').addEventListener('click', () => {
-  navigator.clipboard.writeText($('nanoAddr').value);
-  $('copyMsg').style.display = 'inline';
-  setTimeout(() => $('copyMsg').style.display = 'none', 2000);
-});
-document.querySelectorAll('th[data-col]').forEach(th => {
-  th.addEventListener('click', () => {
-    const col = th.dataset.col;
-    if (col === sortCol) sortDir = -sortDir;
-    else { sortCol = col; sortDir = 1; }
-    renderTable();
-  });
-});
-
-// Init
-(async function init() {
-  await fetchModels();
-})();
-</script>
 </body>
 </html>
