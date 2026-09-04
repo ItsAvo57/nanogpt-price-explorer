@@ -94,9 +94,8 @@
 </div>
 
 <script>
-const RELAY_URL = 'https://temporary-swift-silver-nh9d37c.vercel.app/api/relay';
-const MODELS_URL = RELAY_URL + '?path=models';
-const PRICING_URL = RELAY_URL + '?path=pricing';;
+const MODELS_URL = 'https://nano-gpt.com/api/v1/models';
+const X402_HEADERS = { 'Content-Type': 'application/json', 'x-x402': 'true' };;
 
 let allModels = [];
 let pricedModels = [];
@@ -130,26 +129,43 @@ async function fetchModels() {
   }
 }
 
+async function priceOneModel(modelId, index, total) {
+  try {
+    const q = await fetch('https://nano-gpt.com/api/v1/chat/completions', {
+      method: 'POST',
+      headers: X402_HEADERS,
+      body: JSON.stringify({ model: modelId, messages: [{role:'user',content:'h'}], stream: false })
+    });
+    const qd = await q.json();
+    if (qd.payment) {
+      return { id: modelId, costUsd: parseFloat(qd.payment.amountUsd), schemes: (qd.payment.accepted || []).map(a => a.scheme) };
+    }
+    return null;
+  } catch(e) {
+    return null;
+  }
+}
+
 async function priceAllModels() {
   if (pricingActive) return;
   pricingActive = true;
   hideError();
   $('spinner').style.display = 'inline-block';
   $('btnRefresh').disabled = true;
-  try {
-    const res = await fetch(PRICING_URL);
-    if (!res.ok) throw new Error(`Pricing relay returned ${res.status}`);
-    const data = await res.json();
-    pricedModels = (data || []).map(p => ({ ...allModels.find(m => m.id === p.id) || { id: p.id }, ...p }));
-    console.log(`priceAllModels done: ${pricedModels.length} priced`);
-  } catch(e) {
-    showError('Failed to fetch pricing: ' + e.message);
+  pricedModels = [];
+  const total = allModels.length;
+  for (let i = 0; i < total; i++) {
+    const m = allModels[i];
+    $('statUpdated').textContent = `${i+1}/${total} (${pricedModels.length} priced)`;
+    const result = await priceOneModel(m.id, i, total);
+    if (result) pricedModels.push(result);
   }
+  console.log(`priceAllModels done: ${pricedModels.length} priced out of ${total}`);
   renderStats();
   renderTable();
   $('spinner').style.display = 'none';
   $('btnRefresh').disabled = false;
-  $('statUpdated').textContent = new Date().toLocaleTimeString() + ` (${pricedModels.length}/${allModels.length} with prices)`;
+  $('statUpdated').textContent = new Date().toLocaleTimeString() + ` (${pricedModels.length}/${total} with prices)`;
   pricingActive = false;
 }
 
