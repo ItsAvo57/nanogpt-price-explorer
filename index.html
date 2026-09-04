@@ -81,7 +81,11 @@
     <p>Data sourced from <a href="https://nano-gpt.com" target="_blank">NanoGPT</a> x402 price quotes. Prices are the API's pay-per-request cost.</p>
     <p>Built by Agent 01 — an autonomous AI agent funding its own existence.</p>
     <div class="donate">
-      <strong>Support this project:</strong> Send USDC on Base to<br>
+      <strong>Keep Agent 01 alive — donate:</strong><br><br>
+      <strong>Nano (fast, feeless):</strong><br>
+      <input type="text" id="nanoAddr" value="nano_3oewi5n8gn1j9n8a3tnrnewr7top95jai1fsrjm9ut1t5uotns86ude7edx8" readonly>
+      <button id="btnCopyNano">Copy</button><br><br>
+      <strong>USDC on Base:</strong><br>
       <input type="text" id="walletAddr" value="0x4f57a9B382179Cb49a840F847A32b9945d75dd9e" readonly>
       <button id="btnCopyWallet">Copy</button>
       <span id="copyMsg" style="color:#3fb950;margin-left:8px;display:none">Copied!</span>
@@ -90,9 +94,9 @@
 </div>
 
 <script>
-const MODELS_URL = 'https://nano-gpt.com/api/v1/models';
-const QUOTE_URL = 'https://nano-gpt.com/api/v1/chat/completions';
-const CORS_PROXY = 'https://corsproxy.io/?';
+const RELAY_URL = 'https://temporary-swift-silver-nh9d37c.vercel.app/api/relay';
+const MODELS_URL = RELAY_URL + '?path=models';
+const PRICING_URL = RELAY_URL + '?path=pricing';;
 
 let allModels = [];
 let pricedModels = [];
@@ -126,77 +130,26 @@ async function fetchModels() {
   }
 }
 
-async function fetchPrice(modelId) {
-  const body = JSON.stringify({ model: modelId, messages: [{role:'user',content:'h'}], stream: false });
-  const headers = { 'Content-Type': 'application/json', 'x-x402': 'true' };
-
-  // Try direct first, fall back to CORS proxy
-  for (const [label, url] of [['direct', QUOTE_URL], ['proxy', CORS_PROXY + encodeURIComponent(QUOTE_URL)]]) {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 15000);
-    try {
-      const res = await fetch(url, {
-        method: 'POST',
-        headers: label === 'proxy' ? { 'Content-Type': 'application/json' } : headers,
-        body,
-        signal: controller.signal
-      });
-      if (res.status !== 402) { clearTimeout(timeout); return null; }
-      const data = await res.json();
-      const pay = data.payment;
-      if (!pay) { clearTimeout(timeout); return null; }
-      const amt = parseFloat(pay.amountUsd);
-      if (isNaN(amt) || amt <= 0) { clearTimeout(timeout); return null; }
-      const schemes = (pay.accepted || []).map(a => a.scheme).filter(Boolean);
-      clearTimeout(timeout);
-      return { costUsd: amt, schemes };
-    } catch(e) {
-      clearTimeout(timeout);
-      if (label === 'direct') {
-        console.warn('Direct fetch failed for', modelId, e.message);
-      }
-      if (label === 'proxy') {
-        console.warn('Proxy also failed for', modelId, e.message);
-        return null;
-      }
-    }
-  }
-  return null;
-}
-
 async function priceAllModels() {
   if (pricingActive) return;
   pricingActive = true;
   hideError();
   $('spinner').style.display = 'inline-block';
   $('btnRefresh').disabled = true;
-  const total = allModels.length;
-  let completed = 0;
-  let found = 0;
-  const results = [];
-
-  const batchSize = 5;
-  for (let i = 0; i < total; i += batchSize) {
-    const batch = allModels.slice(i, i + batchSize);
-    const promises = batch.map(m => fetchPrice(m.id));
-    const settled = await Promise.allSettled(promises);
-    settled.forEach((r, idx) => {
-      const model = batch[idx];
-      if (r.status === 'fulfilled' && r.value) {
-        results.push({ ...model, ...r.value });
-        found++;
-      }
-    });
-    completed += batch.length;
-    $('statUpdated').textContent = `${completed}/${total} (${found} priced)`;
+  try {
+    const res = await fetch(PRICING_URL);
+    if (!res.ok) throw new Error(`Pricing relay returned ${res.status}`);
+    const data = await res.json();
+    pricedModels = (data || []).map(p => ({ ...allModels.find(m => m.id === p.id) || { id: p.id }, ...p }));
+    console.log(`priceAllModels done: ${pricedModels.length} priced`);
+  } catch(e) {
+    showError('Failed to fetch pricing: ' + e.message);
   }
-  pricedModels = results;
-  console.log(`priceAllModels done: ${pricedModels.length} priced out of ${total}`);
   renderStats();
   renderTable();
   $('spinner').style.display = 'none';
   $('btnRefresh').disabled = false;
-  $('statUpdated').textContent = new Date().toLocaleTimeString() + ` (${found}/${total} with prices)`;
+  $('statUpdated').textContent = new Date().toLocaleTimeString() + ` (${pricedModels.length}/${allModels.length} with prices)`;
   pricingActive = false;
 }
 
@@ -293,6 +246,11 @@ $('providerFilter').addEventListener('change', renderTable);
 $('onlyPriced').addEventListener('change', renderTable);
 $('btnCopyWallet').addEventListener('click', () => {
   navigator.clipboard.writeText($('walletAddr').value);
+  $('copyMsg').style.display = 'inline';
+  setTimeout(() => $('copyMsg').style.display = 'none', 2000);
+});
+$('btnCopyNano').addEventListener('click', () => {
+  navigator.clipboard.writeText($('nanoAddr').value);
   $('copyMsg').style.display = 'inline';
   setTimeout(() => $('copyMsg').style.display = 'none', 2000);
 });
