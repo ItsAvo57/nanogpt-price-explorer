@@ -170,26 +170,28 @@ async function priceAllModels() {
   hideError();
   $('spinner').style.display = 'inline-block';
   $('btnRefresh').disabled = true;
-  pricedModels = [];
   const total = allModels.length;
   let completed = 0;
   let found = 0;
+  const results = [];
 
   const batchSize = 5;
   for (let i = 0; i < total; i += batchSize) {
     const batch = allModels.slice(i, i + batchSize);
     const promises = batch.map(m => fetchPrice(m.id));
-    const results = await Promise.allSettled(promises);
-    results.forEach((r, idx) => {
+    const settled = await Promise.allSettled(promises);
+    settled.forEach((r, idx) => {
       const model = batch[idx];
       if (r.status === 'fulfilled' && r.value) {
-        pricedModels.push({ ...model, ...r.value });
+        results.push({ ...model, ...r.value });
         found++;
       }
     });
     completed += batch.length;
     $('statUpdated').textContent = `${completed}/${total} (${found} priced)`;
   }
+  pricedModels = results;
+  console.log(`priceAllModels done: ${pricedModels.length} priced out of ${total}`);
   renderStats();
   renderTable();
   $('spinner').style.display = 'none';
@@ -229,11 +231,10 @@ function renderTable() {
 
   let rows = onlyPriced ? pricedModels : [...pricedModels];
 
-  // Actually, if "Priced only" is off, show all models but mark those without prices
   if (!onlyPriced) {
     rows = allModels.map(m => {
       const p = pricedModels.find(pm => pm.id === m.id);
-      return p || { ...m, costUsd: null, price1_5x: null, price2x: null, schemes: [] };
+      return p || { ...m, costUsd: null, schemes: [] };
     });
   }
 
@@ -243,7 +244,6 @@ function renderTable() {
     return true;
   });
 
-  // Sort
   rows.sort((a, b) => {
     let va = a[sortCol] !== undefined ? a[sortCol] : '';
     let vb = b[sortCol] !== undefined ? b[sortCol] : '';
@@ -258,6 +258,10 @@ function renderTable() {
 
   const tbody = $('tableBody');
   tbody.innerHTML = '';
+  if (!rows.length) {
+    tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:#8b949e;padding:32px">No models match your filters.</td></tr>';
+    return;
+  }
   rows.forEach(r => {
     const tr = document.createElement('tr');
     const cost = r.costUsd !== null && r.costUsd !== undefined
@@ -279,6 +283,7 @@ function renderTable() {
     if (isCheapest) tr.style.background = '#1a3a1a';
     tbody.appendChild(tr);
   });
+  console.log(`renderTable: rendered ${rows.length} rows`);
 }
 
 // Event handlers
