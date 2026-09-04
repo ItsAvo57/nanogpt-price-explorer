@@ -152,8 +152,13 @@ async function fetchPrice(modelId) {
       return { costUsd: amt, schemes };
     } catch(e) {
       clearTimeout(timeout);
-      if (label === 'proxy') return null;
-      // direct failed, will try proxy next iteration
+      if (label === 'direct') {
+        console.warn('Direct fetch failed for', modelId, e.message);
+      }
+      if (label === 'proxy') {
+        console.warn('Proxy also failed for', modelId, e.message);
+        return null;
+      }
     }
   }
   return null;
