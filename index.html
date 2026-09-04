@@ -95,7 +95,7 @@
 
 <script>
 const MODELS_URL = 'https://nano-gpt.com/api/v1/models';
-const X402_HEADERS = { 'Content-Type': 'application/json', 'x-x402': 'true' };;
+const X402_HEADERS = { 'Content-Type': 'application/json', 'x-x402': 'true' };
 
 let allModels = [];
 let pricedModels = [];
@@ -110,6 +110,22 @@ function hideError() { $('errorBox').style.display='none'; }
 
 async function fetchModels() {
   hideError();
+  try {
+    const res = await fetch('prices.json');
+    if (res.ok) {
+      const data = await res.json();
+      allModels = [];
+      pricedModels = data.filter(m => m.costUsd);
+      renderStats();
+      renderTable();
+      return allModels;
+    }
+  } catch {}
+  return fetchModelsLive();
+}
+
+async function fetchModelsLive() {
+  hideError();
   $('spinner').style.display='inline-block';
   $('btnRefresh').disabled = true;
   try {
@@ -119,6 +135,7 @@ async function fetchModels() {
     allModels = (data.data || []).filter(m => m.id && !m.id.startsWith('TEE/'));
     renderStats();
     populateProviderFilter();
+    await priceAllModels();
     return allModels;
   } catch(e) {
     showError('Failed to fetch models: '+e.message);
@@ -256,7 +273,7 @@ function renderTable() {
 }
 
 // Event handlers
-$('btnRefresh').addEventListener('click', priceAllModels);
+$('btnRefresh').addEventListener('click', fetchModelsLive);
 $('searchInput').addEventListener('input', renderTable);
 $('providerFilter').addEventListener('change', renderTable);
 $('onlyPriced').addEventListener('change', renderTable);
@@ -282,7 +299,6 @@ document.querySelectorAll('th[data-col]').forEach(th => {
 // Init
 (async function init() {
   await fetchModels();
-  await priceAllModels();
 })();
 </script>
 </body>

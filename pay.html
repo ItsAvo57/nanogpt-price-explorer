@@ -58,14 +58,21 @@
     <button id="btnQuote">⟳ Get Quote</button>
   </div>
 
-  <div id="paymentStep" class="step" style="display:none">
-    <h3>3. Pay via x402</h3>
-    <p style="color:#8b949e;font-size:0.9em;margin-bottom:12px">Send <strong id="payAmount">0.0072 USDC</strong> to the address below, OR click to pay directly.</p>
-    <button id="btnPayBase" class="primary">Pay with USDC (Base) — x402 Exact</button>
-    <button id="btnPayNano" style="background:#d2a8ff;color:#000;margin-left:8px">Pay with Nano</button>
-    <div id="paymentError" class="error" style="display:none;margin-top:12px"></div>
-    <div id="paymentProgress" style="margin-top:12px;display:none"><span class="spinner"></span> Waiting for payment...</div>
-  </div>
+<div id="paymentStep" class="step" style="display:none">
+      <h3>3. Pay via x402</h3>
+      <p style="color:#8b949e;font-size:0.9em;margin-bottom:12px">Send <strong id="payAmount">0.0072 USDC</strong> to the address below, OR click to pay directly.</p>
+      <button id="btnPayBase" class="primary">Pay with USDC (Base) — x402 Exact</button>
+      <button id="btnPayNano" style="background:#d2a8ff;color:#000;margin-left:8px">Pay with Nano</button>
+      <div id="manualNano" class="step" style="display:none;margin-top:12px;background:#1c1f2b">
+        <p style="color:#8b949e;font-size:0.9em;margin-bottom:8px">Send Nano to:</p>
+        <input type="text" id="nanoAddrDisplay" readonly style="width:100%;background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;color:#e6edf3;font-size:0.85em">
+        <p style="color:#8b949e;font-size:0.85em;margin-top:8px">After sending, click verify below. The transaction explorer may take ~30s to show the payment.</p>
+        <button id="btnVerifyNano" style="background:#1f6feb;margin-top:8px">Verify Payment</button>
+        <span id="nanoVerifyMsg" style="color:#3fb950;margin-left:8px;display:none">✓ Payment verified!</span>
+      </div>
+      <div id="paymentError" class="error" style="display:none;margin-top:12px"></div>
+      <div id="paymentProgress" style="margin-top:12px;display:none"><span class="spinner"></span> Waiting for payment...</div>
+    </div>
 
   <div id="responseArea"></div>
 
@@ -112,7 +119,68 @@ $('btnQuote').addEventListener('click', async () => {
     const nanoOpt = currentQuote.payment.accepted.find(a => a.scheme === 'nano-exact' || a.scheme === 'nano');
 
     $('btnPayBase').style.display = baseOpt ? 'inline-block' : 'none';
-    $('btnPayNano').style.display = nanoOpt ? 'inline-block' : 'none';
+    $('btnPayNano').addEventListener('click', () => {
+  if (!currentQuote) return;
+  const nanoOpt = currentQuote.payment.accepted.find(a => a.scheme === 'nano-exact' || a.scheme === 'nano');
+  if (!nanoOpt) { alert('Nano option not available for this quote.'); return; }
+  $('nanoAddrDisplay').value = nanoOpt.payTo || 'nano_3oewi5n8gn1j9n8a3tnrnewr7top95jai1fsrjm9ut1t5uotns86ude7edx8';
+  $('manualNano').style.display = 'block';
+});
+
+$('btnVerifyNano').addEventListener('click', async () => {
+  if (!currentQuote) return;
+  const nanoOpt = currentQuote.payment.accepted.find(a => a.scheme === 'nano-exact' || a.scheme === 'nano');
+  const toAddr = (nanoOpt && nanoOpt.payTo) || 'nano_3oewi5n8gn1j9n8a3tnrnewr7top95jai1fsrjm9ut1t5uotns86ude7edx8';
+  const amountRaw = nanoOpt ? nanoOpt.amount : '0';
+
+  $('btnVerifyNano').disabled = true;
+  $('btnVerifyNano').textContent = 'Verifying...';
+
+  try {
+    const histRes = await fetch(`https://nanocounteer.com/api/v1/account/${toAddr}/history?limit=20`);
+    const hist = await histRes.json();
+    const txs = hist.history || hist.blocks || [];
+    const amt = BigInt(amountRaw || '0');
+    const match = txs.find(tx => {
+      const txAmt = BigInt(tx.amount || '0');
+      return txAmt >= amt;
+    });
+
+    if (match) {
+      $('nanoVerifyMsg').style.display = 'inline';
+      $('btnVerifyNano').textContent = '✓ Verified';
+
+      // After verification, complete the request
+      try {
+        const res = await fetch(API, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            model: $('modelSelect').value,
+            messages: [{role:'user',content:'Proof of Nano payment: tx ' + (match.hash || match.block) + '. Now fulfill the original request: ' + $('promptInput').value.trim()}],
+            stream: false
+          })
+        });
+        if (res.ok) {
+          const data = await res.json();
+          const reply = data.choices?.[0]?.message?.content || JSON.stringify(data, null, 2);
+          $('responseArea').textContent = reply;
+          $('responseArea').style.display = 'block';
+          $('paymentStep').style.display = 'none';
+        }
+      } catch {}
+    } else {
+      alert('No matching payment found yet. Transactions may take 30-60s to appear. Try again in a moment.');
+    }
+  } catch(e) {
+    alert('Verification error: ' + e.message);
+  } finally {
+    $('btnVerifyNano').disabled = false;
+    if ($('btnVerifyNano').textContent !== '✓ Verified') {
+      $('btnVerifyNano').textContent = 'Verify Payment';
+    }
+  }
+});
     $('paymentStep').style.display = 'block';
     $('responseArea').style.display = 'none';
   } catch(e) {
