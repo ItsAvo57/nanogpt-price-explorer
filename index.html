@@ -114,8 +114,9 @@ async function fetchModels() {
     const res = await fetch('prices.json');
     if (res.ok) {
       const data = await res.json();
-      allModels = [];
+      allModels = data.filter(m => m.id && !m.id.startsWith('TEE/'));
       pricedModels = data.filter(m => m.costUsd);
+      populateProviderFilter();
       renderStats();
       renderTable();
       return allModels;
@@ -208,6 +209,7 @@ function populateProviderFilter() {
     opt.value = p; opt.textContent = p;
     sel.appendChild(opt);
   });
+  // show only "All Providers" since no owned_by in static data
 }
 
 function renderTable() {
@@ -215,20 +217,24 @@ function renderTable() {
   const provider = $('providerFilter').value;
   const onlyPriced = $('onlyPriced').checked;
 
-  let rows = onlyPriced ? pricedModels : [...pricedModels];
+  let rows = onlyPriced ? pricedModels : allModels;
 
   if (!onlyPriced) {
     rows = allModels.map(m => {
       const p = pricedModels.find(pm => pm.id === m.id);
-      return p || { ...m, costUsd: null, schemes: [] };
+      return p || { id: m.id, owned_by: m.owned_by || 'unknown', costUsd: null, schemes: [] };
     });
   }
 
   rows = rows.filter(r => {
     if (search && !r.id.toLowerCase().includes(search)) return false;
-    if (provider && r.owned_by !== provider) return false;
+    if (provider && (r.owned_by || 'unknown') !== provider) return false;
     return true;
   });
+
+  // deduplicate by id (pricedModels may overlap with allModels)
+  const seen = new Set();
+  rows = rows.filter(r => { if (seen.has(r.id)) return false; seen.add(r.id); return true; });
 
   rows.sort((a, b) => {
     let va = a[sortCol] !== undefined ? a[sortCol] : '';

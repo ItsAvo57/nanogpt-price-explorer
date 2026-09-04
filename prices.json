@@ -9,7 +9,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "qwen"
   },
   {
     "id": "nanogpt/coding-router:low",
@@ -21,7 +22,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "nanogpt"
   },
   {
     "id": "qwen3.5-2b",
@@ -33,7 +35,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "qwen"
   },
   {
     "id": "qwen3.5-4b",
@@ -45,7 +48,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "qwen"
   },
   {
     "id": "mistralai/Devstral-Small-2505",
@@ -57,7 +61,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "mistral"
   },
   {
     "id": "nanogpt/coding-router",
@@ -69,7 +74,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "nanogpt"
   },
   {
     "id": "nanogpt/coding-router:high",
@@ -81,7 +87,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "nanogpt"
   },
   {
     "id": "gemini-2.5-flash-preview-05-20",
@@ -93,7 +100,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "gemini"
   },
   {
     "id": "gemini-2.5-flash-preview-04-17",
@@ -105,7 +113,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "gemini"
   },
   {
     "id": "qwen3.8-27b",
@@ -117,7 +126,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "qwen"
   },
   {
     "id": "qwen3.8-27b:thinking",
@@ -129,7 +139,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "qwen"
   },
   {
     "id": "gemma-4-e2b-it",
@@ -141,7 +152,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "google"
   },
   {
     "id": "openai/gpt-5-nano",
@@ -153,7 +165,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   },
   {
     "id": "qwen/qwen3.6-35b-a3b-uncensored",
@@ -165,7 +178,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "qwen"
   },
   {
     "id": "qwen/qwen3.6-35b-a3b-uncensored:thinking",
@@ -177,7 +191,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "qwen"
   },
   {
     "id": "inception/mercury-2.5-preview",
@@ -189,7 +204,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "inception"
   },
   {
     "id": "ibm-granite/granite-4.2-8b",
@@ -201,7 +217,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "ibm"
   },
   {
     "id": "qwen/qwen3.8-27b-uncensored",
@@ -213,7 +230,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "qwen"
   },
   {
     "id": "qwen/qwen3.8-27b-fable",
@@ -225,7 +243,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "qwen"
   },
   {
     "id": "qwen/qwen3.8-27b-uncensored:thinking",
@@ -237,7 +256,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "qwen"
   },
   {
     "id": "qwen/qwen3.8-27b-obliterated",
@@ -249,7 +269,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "qwen"
   },
   {
     "id": "qwen/qwen3.8-27b-obliterated:thinking",
@@ -261,7 +282,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "qwen"
   },
   {
     "id": "gemma-4-e4b-it",
@@ -273,7 +295,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "google"
   },
   {
     "id": "nvidia/nemotron-3.5-lightning",
@@ -285,7 +308,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "nvidia"
   },
   {
     "id": "nvidia/nemotron-3.5-lightning:thinking",
@@ -297,7 +321,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "nvidia"
   },
   {
     "id": "meta/muse-spark-1.3-contributor",
@@ -309,7 +334,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "meta"
   },
   {
     "id": "ornith-ai/ornith-1.5-9b",
@@ -321,7 +347,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "ornith"
   },
   {
     "id": "ornith-ai/ornith-1.5-9b:thinking",
@@ -333,7 +360,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "ornith"
   },
   {
     "id": "poolside/laguna-s-2.1",
@@ -345,7 +373,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "poolside"
   },
   {
     "id": "poolside/laguna-s-2.1:thinking",
@@ -357,7 +386,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "poolside"
   },
   {
     "id": "liquid/lfm-2.5-2.6b",
@@ -369,7 +399,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "other"
   },
   {
     "id": "meta/muse-spark-1.2-contributor",
@@ -381,7 +412,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "meta"
   },
   {
     "id": "gemma-4-12b-it",
@@ -393,7 +425,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "google"
   },
   {
     "id": "z-ai/glm-5.3-flash",
@@ -405,7 +438,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "zhipu"
   },
   {
     "id": "bytedance/doubao-seed-character",
@@ -417,7 +451,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "doubao"
   },
   {
     "id": "openai/gpt-oss-safeguard-20b",
@@ -429,7 +464,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   },
   {
     "id": "stepfun-ai/step-3.5-flash-2603",
@@ -441,7 +477,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "stepfun"
   },
   {
     "id": "stepfun-ai/step-3.5-flash",
@@ -453,7 +490,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "stepfun"
   },
   {
     "id": "openai/gpt-oss-20b",
@@ -465,7 +503,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   },
   {
     "id": "soob3123/amoral-gemma3-27B-v2",
@@ -477,7 +516,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "gemini"
   },
   {
     "id": "soob3123/Veiled-Calla-12B",
@@ -489,7 +529,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "organization-owner"
   },
   {
     "id": "openai/gpt-5.6-luna",
@@ -501,7 +542,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   },
   {
     "id": "openai/gpt-5.6-luna-pro",
@@ -513,7 +555,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   },
   {
     "id": "openai/gpt-5.4-nano",
@@ -525,7 +568,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   },
   {
     "id": "nanogpt/coding-router:medium",
@@ -537,7 +581,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "nanogpt"
   },
   {
     "id": "gemma-4-26b-a4b-uncensored",
@@ -549,7 +594,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "google"
   },
   {
     "id": "gemma-4-26b-a4b-uncensored:thinking",
@@ -561,7 +607,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "google"
   },
   {
     "id": "Gemma-4-26B-A4B-MeroMero",
@@ -573,7 +620,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "google"
   },
   {
     "id": "Gemma-4-26B-A4B-MeroMero:thinking",
@@ -585,7 +633,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "google"
   },
   {
     "id": "gemma-4-26b-a4b-it-musica",
@@ -597,7 +646,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "google"
   },
   {
     "id": "gemma-4-26b-a4b-it-shadowsiren",
@@ -609,7 +659,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "google"
   },
   {
     "id": "gemma-4-26b-a4b-it-chimerax",
@@ -621,7 +672,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "google"
   },
   {
     "id": "gemma-4-26b-a4b-it-luminous",
@@ -633,7 +685,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "google"
   },
   {
     "id": "gemma-4-26b-a4b-it-darksoul",
@@ -645,7 +698,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "google"
   },
   {
     "id": "gemma-4-26b-a4b-it-moonlight",
@@ -657,7 +711,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "google"
   },
   {
     "id": "gemma-4-26b-a4b-it-opusdistill",
@@ -669,7 +724,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "google"
   },
   {
     "id": "ornith-ai/ornith-1.5-35b-a3b",
@@ -681,7 +737,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "ornith"
   },
   {
     "id": "ornith-ai/ornith-1.5-35b-a3b:thinking",
@@ -693,7 +750,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "ornith"
   },
   {
     "id": "gemini-2.5-flash-preview-05-20:thinking",
@@ -705,7 +763,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "gemini"
   },
   {
     "id": "Gemma-4-31B-MeroMero-v2",
@@ -717,7 +776,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "google"
   },
   {
     "id": "Gemma-4-31B-MeroMero-v2:thinking",
@@ -729,7 +789,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "google"
   },
   {
     "id": "gemma-4-31b-it-fabled",
@@ -741,7 +802,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "google"
   },
   {
     "id": "gemma-4-31b-it-darkidol",
@@ -753,7 +815,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "google"
   },
   {
     "id": "gemma-4-31b-it-garnet",
@@ -765,7 +828,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "google"
   },
   {
     "id": "gemma-4-31b-it-novelist",
@@ -777,7 +841,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "google"
   },
   {
     "id": "gemma-4-31b-it-isometry",
@@ -789,7 +854,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "google"
   },
   {
     "id": "gemma-4-31b-it-gembrain",
@@ -801,7 +867,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "google"
   },
   {
     "id": "gemma-4-31b-it-gemsicle",
@@ -813,7 +880,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "google"
   },
   {
     "id": "openai/gpt-5.1-codex-mini",
@@ -825,7 +893,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   },
   {
     "id": "openai/gpt-5-mini",
@@ -837,7 +906,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   },
   {
     "id": "gemini-exp-1206",
@@ -849,7 +919,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "gemini"
   },
   {
     "id": "openai/gpt-oss-120b",
@@ -861,7 +932,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   },
   {
     "id": "gemini-2.0-pro-exp-02-05",
@@ -873,7 +945,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "gemini"
   },
   {
     "id": "pokee-isaac",
@@ -885,7 +958,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "pokee"
   },
   {
     "id": "stepfun/step-3.7-flash:thinking",
@@ -897,7 +971,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "stepfun"
   },
   {
     "id": "openai/gpt-5.4-mini",
@@ -909,7 +984,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   },
   {
     "id": "anthropic/claude-sonnet-5",
@@ -921,7 +997,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "anthropic"
   },
   {
     "id": "anthropic/claude-sonnet-5:thinking",
@@ -933,7 +1010,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "anthropic"
   },
   {
     "id": "anthropic/claude-sonnet-latest",
@@ -945,7 +1023,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "anthropic"
   },
   {
     "id": "z-ai/glm-5.3-flash-uncensored",
@@ -957,7 +1036,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "zhipu"
   },
   {
     "id": "perceptron/perceptron-mk1",
@@ -969,7 +1049,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "perceptron"
   },
   {
     "id": "meta/muse-glimmer-30b",
@@ -981,7 +1062,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "meta"
   },
   {
     "id": "z-ai/glm-4.5v",
@@ -993,7 +1075,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "zhipu"
   },
   {
     "id": "z-ai/glm-4.5v:thinking",
@@ -1005,7 +1088,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "zhipu"
   },
   {
     "id": "sofya-research",
@@ -1017,7 +1101,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "sofya"
   },
   {
     "id": "nvidia/nemotron-3-ultra-550b-a55b",
@@ -1029,7 +1114,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "nvidia"
   },
   {
     "id": "nvidia/nemotron-3-ultra-550b-a55b:thinking",
@@ -1041,7 +1127,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "nvidia"
   },
   {
     "id": "exa-answer",
@@ -1053,7 +1140,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "exa"
   },
   {
     "id": "tencent/hy4-preview",
@@ -1065,7 +1153,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "tencent"
   },
   {
     "id": "openai/gpt-5",
@@ -1077,7 +1166,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   },
   {
     "id": "openai/gpt-5.1",
@@ -1089,7 +1179,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   },
   {
     "id": "openai/gpt-5.1-codex",
@@ -1101,7 +1192,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   },
   {
     "id": "openai/gpt-5.6-sol",
@@ -1113,7 +1205,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   },
   {
     "id": "openai/gpt-5.6-sol-pro",
@@ -1125,7 +1218,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   },
   {
     "id": "longcat-2.0",
@@ -1137,7 +1231,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "longcat"
   },
   {
     "id": "longcat-2.0:thinking",
@@ -1149,7 +1244,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "longcat"
   },
   {
     "id": "abliteration-ai/abliterated-model",
@@ -1161,7 +1257,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "abliteration"
   },
   {
     "id": "openai/gpt-5.6-terra",
@@ -1173,7 +1270,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   },
   {
     "id": "openai/gpt-5.6-terra-pro",
@@ -1185,7 +1283,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   },
   {
     "id": "claw-high",
@@ -1197,7 +1296,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "nanogpt"
   },
   {
     "id": "claw-medium",
@@ -1209,7 +1309,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "nanogpt"
   },
   {
     "id": "claw-low",
@@ -1221,7 +1322,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "nanogpt"
   },
   {
     "id": "hermes-high",
@@ -1233,7 +1335,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "nanogpt"
   },
   {
     "id": "hermes-medium",
@@ -1245,7 +1348,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "nanogpt"
   },
   {
     "id": "hermes-low",
@@ -1257,7 +1361,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "nanogpt"
   },
   {
     "id": "ernie-5.0-thinking-preview",
@@ -1269,7 +1374,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "baidu"
   },
   {
     "id": "openai/gpt-5.2",
@@ -1281,7 +1387,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   },
   {
     "id": "openai/gpt-5.2-codex",
@@ -1293,7 +1400,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   },
   {
     "id": "openai/gpt-5.3-codex",
@@ -1305,7 +1413,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   },
   {
     "id": "linkup-research-low",
@@ -1317,7 +1426,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "linkup"
   },
   {
     "id": "openai/gpt-5.4",
@@ -1329,7 +1439,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   },
   {
     "id": "z-ai/glm-5-turbo",
@@ -1341,7 +1452,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "zhipu"
   },
   {
     "id": "z-ai/glm-5v-turbo",
@@ -1353,7 +1465,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "zhipu"
   },
   {
     "id": "z-ai/glm-5v-turbo:thinking",
@@ -1365,7 +1478,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "zhipu"
   },
   {
     "id": "thinkingmachines/inkling",
@@ -1377,7 +1491,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "baseten"
   },
   {
     "id": "thinkingmachines/inkling:thinking",
@@ -1389,7 +1504,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "baseten"
   },
   {
     "id": "meta/muse-spark-1.3",
@@ -1401,7 +1517,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "meta"
   },
   {
     "id": "meta/muse-spark-1.2",
@@ -1413,7 +1530,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "meta"
   },
   {
     "id": "meta/muse-spark-1.1",
@@ -1425,7 +1543,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "meta"
   },
   {
     "id": "qvq-max",
@@ -1437,7 +1556,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "qwen"
   },
   {
     "id": "abliteration-ai/abliterated-model-large",
@@ -1449,7 +1569,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "abliteration"
   },
   {
     "id": "abliteration-ai/abliterated-model-large-v2",
@@ -1461,7 +1582,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "abliteration"
   },
   {
     "id": "brave",
@@ -1473,7 +1595,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "brave"
   },
   {
     "id": "brave-pro",
@@ -1485,7 +1608,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "brave"
   },
   {
     "id": "brave-research",
@@ -1497,7 +1621,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "brave"
   },
   {
     "id": "openai/gpt-5.1-codex-max",
@@ -1509,7 +1634,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   },
   {
     "id": "celeris-1",
@@ -1521,7 +1647,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "celeris"
   },
   {
     "id": "linkup-research-medium",
@@ -1533,7 +1660,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "linkup"
   },
   {
     "id": "fastgpt",
@@ -1545,7 +1673,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "kagi"
   },
   {
     "id": "openai/gpt-5.5",
@@ -1557,7 +1686,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   },
   {
     "id": "openai/gpt-latest",
@@ -1569,7 +1699,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   },
   {
     "id": "openai/gpt-chat-latest",
@@ -1581,7 +1712,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   },
   {
     "id": "moonshotai/kimi-k3",
@@ -1593,7 +1725,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "moonshot"
   },
   {
     "id": "sonar-deep-research",
@@ -1605,7 +1738,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "perplexity"
   },
   {
     "id": "claude-sonnet-4-5-20250929",
@@ -1617,7 +1751,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "anthropic"
   },
   {
     "id": "claude-sonnet-4-5-20250929-thinking",
@@ -1629,7 +1764,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "anthropic"
   },
   {
     "id": "deepclaude",
@@ -1641,7 +1777,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "anthropic"
   },
   {
     "id": "auto-model-basic",
@@ -1653,7 +1790,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "nanogpt"
   },
   {
     "id": "auto-model-standard",
@@ -1665,7 +1803,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "nanogpt"
   },
   {
     "id": "auto-model-premium",
@@ -1677,7 +1816,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "nanogpt"
   },
   {
     "id": "linkup-research-high",
@@ -1689,7 +1829,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "linkup"
   },
   {
     "id": "universal-summarizer",
@@ -1701,7 +1842,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "kagi"
   },
   {
     "id": "openai/gpt-5-pro",
@@ -1713,7 +1855,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   },
   {
     "id": "sakana/fugu-ultra",
@@ -1725,7 +1868,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "sakana"
   },
   {
     "id": "sakana/fugu-ultra-v1.1",
@@ -1737,7 +1881,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "sakana"
   },
   {
     "id": "linkup-research-xhigh",
@@ -1749,7 +1894,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "linkup"
   },
   {
     "id": "nanogpt/coding-router:max",
@@ -1761,7 +1907,8 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "nanogpt"
   },
   {
     "id": "openai/gpt-6-astra",
@@ -1773,6 +1920,7 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ]
+    ],
+    "owned_by": "openai"
   }
 ]
