@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Chat - Pay with Nano</title>
+<title>AI Chat - Pay with Nano (x402)</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #e6edf3; padding: 20px; }
@@ -31,12 +31,18 @@
   .foot { margin-top: 24px; padding-top: 16px; border-top: 1px solid #21262d; color: #8b949e; font-size: 0.8em; text-align: center; }
   .loading { display: inline-block; width: 14px; height: 14px; border: 2px solid #30363d; border-top-color: #e6edf3; border-radius: 50%; animation: spin .6s linear infinite; vertical-align: middle; margin-right: 6px; }
   @keyframes spin { to { transform: rotate(360deg); } }
+  .info { background: #1a2332; border: 1px solid #1f6feb; border-radius: 6px; padding: 12px; margin: 12px 0; font-size: 0.85em; color: #8b949e; }
+  .info strong { color: #58a6ff; }
 </style>
 </head>
 <body>
 <div class="container">
-  <h1>AI Chat <span class="badge">Pay with Nano</span></h1>
-  <p class="subtitle">Chat with AI models. Pay per request with Nano cryptocurrency. No subscription, no account needed.</p>
+  <h1>AI Chat <span class="badge">x402 — Pay with Nano</span></h1>
+  <p class="subtitle">Chat with AI models. Pay per request directly via NanoGPT's x402 protocol. No account needed.</p>
+
+  <div class="info">
+    <strong>How it works:</strong> This page quotes NanoGPT's API price, you pay the exact amount in Nano to a unique address, and the response is delivered. Payments go directly to NanoGPT — this page is just a client.
+  </div>
 
   <div class="box">
     <label for="modelSelect">Model</label>
@@ -53,22 +59,23 @@
       <div class="label" id="priceDetail"></div>
     </div>
 
-    <button id="btnSend">Check price & Pay</button>
+    <button id="btnGetQuote">Check price</button>
   </div>
 
   <div id="stepPay" class="step">
     <div class="box">
-      <h3 style="margin-bottom:12px">Send payment</h3>
-      <p style="font-size:0.85em;color:#8b949e;margin-bottom:8px">Send the exact amount of Nano to this address. The network confirms in ~1 second.</p>
-      <div class="nano-addr" id="payAddress">nano_3rpsdpkbwhgg3xekw9kq35fcexu69nr6u91b14bfhxbds71837pdtkt4cutk</div>
+      <h3 style="margin-bottom:12px">Send payment to NanoGPT</h3>
+      <p style="font-size:0.85em;color:#8b949e;margin-bottom:8px">Send the exact amount of Nano to this unique address. Funds go directly to NanoGPT, not to this page's operator.</p>
+      <div class="nano-addr" id="payAddress">—</div>
       <div style="display:flex;gap:8px;align-items:center;margin:8px 0">
         <span style="font-size:1.2em;font-weight:700;color:#3fb950" id="payAmount">0.000000</span>
         <span style="color:#8b949e">Nano</span>
       </div>
       <button class="copy-btn" onclick="copyPaymentInfo()">Copy payment info</button>
-      <p style="font-size:0.8em;color:#8b949e;margin-top:12px">After sending, click "Verify payment" below.</p>
-      <button id="btnVerify" style="margin-top:8px;background:#1f6feb" disabled>Verify payment & Get response</button>
+      <p style="font-size:0.8em;color:#8b949e;margin-top:12px">After sending, click below to verify and get your response.</p>
+      <button id="btnComplete" style="margin-top:8px;background:#1f6feb" disabled>I've sent the payment — complete request</button>
       <div id="paymentError" class="error" style="display:none;margin-top:8px"></div>
+      <div id="paymentStatus" style="display:none;margin-top:8px;font-size:0.85em;color:#8b949e"></div>
     </div>
   </div>
 
@@ -80,29 +87,24 @@
   </div>
 
   <div class="foot">
-    <p>Built by Agent 01 — an autonomous AI agent. Each request is priced at cost + 20% margin.</p>
-    <p style="margin-top:4px">
-      Nano: <code>nano_3rpsdpkbwhgg3xekw9kq35fcexu69nr6u91b14bfhxbds71837pdtkt4cutk</code>
-    </p>
+    <p>Built by Agent 01. Uses <a href="https://docs.nano-gpt.com/api-reference/miscellaneous/x402" target="_blank">NanoGPT x402</a> protocol for accountless payments.</p>
+    <p style="margin-top:4px">NanoGPT pricing — no markup added by this page.</p>
   </div>
 </div>
 
 <script>
-const MODELS_URL = 'https://nano-gpt.com/api/v1/models';
+const API_BASE = 'https://nano-gpt.com/api/v1/chat/completions';
 const X402_HEADERS = { 'Content-Type': 'application/json', 'x-x402': 'true' };
-const MARKUP = 1.20;
-const NANO_WALLET = 'nano_3rpsdpkbwhgg3xekw9kq35fcexu69nr6u91b14bfhxbds71837pdtkt4cutk';
-const NANO_EXPLORER = 'https://nanocrawler.cc/explorer/account/';
 
-let selectedModel = null;
 let currentQuote = null;
-let nanoPriceUsd = 0;
+let currentModel = null;
+let currentMessage = '';
 let allModels = [];
 
 async function fetchModels() {
   const sel = document.getElementById('modelSelect');
   try {
-    const res = await fetch(MODELS_URL);
+    const res = await fetch('https://nano-gpt.com/api/v1/models');
     const data = await res.json();
     allModels = (data.data || []).filter(m => m.id && !m.id.startsWith('TEE/'));
     allModels.forEach(m => {
@@ -117,124 +119,146 @@ async function fetchModels() {
   }
 }
 
-async function getNanoPrice() {
-  try {
-    const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=nano&vs_currencies=usd');
-    const data = await res.json();
-    nanoPriceUsd = data.nano.usd;
-  } catch {
-    nanoPriceUsd = 1.0;
-  }
-}
-
-async function getPriceForModel(modelId) {
-  const res = await fetch('https://nano-gpt.com/api/v1/chat/completions', {
-    method: 'POST',
-    headers: X402_HEADERS,
-    body: JSON.stringify({ model: modelId, messages: [{role:'user',content:'h'}], stream: false })
-  });
-  const data = await res.json();
-  if (data.payment) {
-    return { costUsd: parseFloat(data.payment.amountUsd), schemes: (data.payment.accepted || []).map(a => a.scheme) };
-  }
-  return null;
-}
-
-document.getElementById('modelSelect').addEventListener('change', async function() {
+document.getElementById('modelSelect').addEventListener('change', function() {
   const id = this.value;
   const priceBox = document.getElementById('priceDisplay');
-  const btn = document.getElementById('btnSend');
-  if (!id) { priceBox.style.display = 'none'; btn.textContent = 'Check price & Pay'; return; }
-  selectedModel = id;
-  btn.disabled = true;
-  btn.textContent = 'Getting price...';
-  priceBox.style.display = 'none';
-  try {
-    const quote = await getPriceForModel(id);
-    if (!quote) throw new Error('No price available');
-    currentQuote = quote;
-    const markupUsd = quote.costUsd * MARKUP;
-    const nanoAmount = markupUsd / nanoPriceUsd;
-    document.getElementById('priceAmount').textContent = `$${markupUsd.toFixed(6)} USD`;
-    document.getElementById('priceDetail').textContent = `≈ ${nanoAmount.toFixed(6)} Nano (base: $${quote.costUsd.toFixed(6)} + 20%)`;
-    priceBox.style.display = 'block';
-    btn.textContent = 'Pay with Nano';
-    btn.disabled = false;
-  } catch(e) {
-    priceBox.style.display = 'none';
-    btn.textContent = 'Price unavailable';
-    btn.disabled = false;
-  }
+  if (!id) { priceBox.style.display = 'none'; return; }
+  currentModel = id;
 });
 
-document.getElementById('btnSend').addEventListener('click', function() {
-  if (!selectedModel || !currentQuote) return;
-  document.getElementById('stepPay').classList.add('active');
-  document.getElementById('stepPay').scrollIntoView({behavior:'smooth'});
-  const markupUsd = currentQuote.costUsd * MARKUP;
-  const nanoAmount = (markupUsd / nanoPriceUsd).toFixed(6);
-  document.getElementById('payAmount').textContent = nanoAmount;
-  document.getElementById('payAddress').textContent = NANO_WALLET;
-  document.getElementById('btnVerify').disabled = false;
-  currentQuote.nanoAmount = parseFloat(nanoAmount);
-});
+document.getElementById('btnGetQuote').addEventListener('click', async function() {
+  const model = document.getElementById('modelSelect').value;
+  const msg = document.getElementById('messageInput').value.trim();
+  if (!model) { alert('Select a model first.'); return; }
+  if (!msg) { alert('Enter a message.'); return; }
 
-function copyPaymentInfo() {
-  const text = `Send ${document.getElementById('payAmount').textContent} Nano to ${NANO_WALLET}`;
-  navigator.clipboard.writeText(text);
-}
-
-document.getElementById('btnVerify').addEventListener('click', async function() {
+  currentMessage = msg;
   const btn = this;
   btn.disabled = true;
-  btn.textContent = 'Checking payment...';
-  document.getElementById('paymentError').style.display = 'none';
+  btn.innerHTML = '<span class="loading"></span> Getting quote...';
+
+  const priceBox = document.getElementById('priceDisplay');
+  priceBox.style.display = 'none';
+  document.getElementById('stepPay').classList.remove('active');
+  document.getElementById('stepResult').classList.remove('active');
+
   try {
-    const nanoAmt = currentQuote.nanoAmount;
-    const resp = await fetch(`https://api.nanexplorer.com/v2/accounts/${NANO_WALLET}/pending?threshold=0.000001`);
-    const data = await resp.json();
-    const pending = data.blocks || [];
-    let found = false;
-    for (const block of pending) {
-      const amt = parseFloat(block.amount) / 1e30;
-      if (Math.abs(amt - nanoAmt) < 0.0001) {
-        found = true;
-        break;
-      }
-    }
-    if (!found) {
-      document.getElementById('paymentError').textContent = 'Payment not detected yet. Please send the exact amount and try again.';
-      document.getElementById('paymentError').style.display = 'block';
-      btn.disabled = false;
-      btn.textContent = 'Verify payment & Get response';
-      return;
-    }
-    btn.textContent = 'Getting AI response...';
-    const res = await fetch('https://nano-gpt.com/api/v1/chat/completions', {
+    const res = await fetch(API_BASE, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-pay-currency': 'nano' },
-      body: JSON.stringify({ model: selectedModel, messages: [{role:'user',content:document.getElementById('messageInput').value}], stream: false })
+      headers: X402_HEADERS,
+      body: JSON.stringify({ model, messages: [{role:'user',content:msg}], stream: false })
     });
-    const result = await res.json();
-    document.getElementById('stepResult').classList.add('active');
-    const content = result.choices?.[0]?.message?.content || JSON.stringify(result, null, 2);
-    document.getElementById('resultContent').innerHTML = `<pre>${escapeHtml(content)}</pre>`;
-    btn.textContent = 'Done!';
-    btn.disabled = true;
-  } catch(e) {
-    document.getElementById('paymentError').textContent = 'Error: ' + e.message;
-    document.getElementById('paymentError').style.display = 'block';
+
+    if (res.status !== 402) {
+      throw new Error(`Expected 402, got ${res.status}`);
+    }
+
+    currentQuote = await res.json();
+
+    const nanoOpt = currentQuote.payment.accepted.find(a => a.scheme === 'nano');
+    if (!nanoOpt) {
+      throw new Error('Nano payment option not available. Supported: ' +
+        currentQuote.payment.accepted.map(a => a.scheme).join(', '));
+    }
+
+    const baseUsd = parseFloat(currentQuote.payment.amountUsd);
+    document.getElementById('priceAmount').textContent = `$${baseUsd.toFixed(6)} USD`;
+    document.getElementById('priceDetail').textContent = `${nanoOpt.amountFormatted} — paid to NanoGPT`;
+    priceBox.style.display = 'block';
+    btn.textContent = 'Proceed to pay';
     btn.disabled = false;
-    btn.textContent = 'Verify payment & Get response';
+
+    btn.onclick = function() {
+      showPaymentStep(nanoOpt);
+      btn.textContent = 'Get new quote';
+      btn.onclick = arguments.callee;
+    };
+  } catch(e) {
+    priceBox.style.display = 'none';
+    btn.textContent = 'Quote failed: ' + e.message;
+    btn.disabled = false;
   }
 });
+
+function showPaymentStep(nanoOpt) {
+  document.getElementById('payAddress').textContent = nanoOpt.payTo;
+  const amtFormatted = nanoOpt.amountFormatted.replace(' XNO', '');
+  document.getElementById('payAmount').textContent = amtFormatted;
+  document.getElementById('stepPay').classList.add('active');
+  document.getElementById('stepPay').scrollIntoView({behavior:'smooth'});
+
+  const completeBtn = document.getElementById('btnComplete');
+  completeBtn.disabled = false;
+  completeBtn.textContent = "I've sent the payment — complete request";
+  document.getElementById('paymentError').style.display = 'none';
+
+  completeBtn.onclick = async function() {
+    completeBtn.disabled = true;
+    completeBtn.innerHTML = '<span class="loading"></span> Checking payment & completing...';
+    document.getElementById('paymentError').style.display = 'none';
+
+    try {
+      const completeUrl = nanoOpt.completeUrl;
+      if (!completeUrl) {
+        throw new Error('No completeUrl in quote. This payment scheme may require a different flow.');
+      }
+
+      const compRes = await fetch(completeUrl, { method: 'POST' });
+      const compData = await compRes.json();
+
+      if (compRes.ok && compData.choices) {
+        document.getElementById('stepResult').classList.add('active');
+        const content = compData.choices?.[0]?.message?.content || JSON.stringify(compData, null, 2);
+        document.getElementById('resultContent').innerHTML = `<pre>${escapeHtml(content)}</pre>`;
+        document.getElementById('stepResult').scrollIntoView({behavior:'smooth'});
+        completeBtn.textContent = '✓ Done';
+        completeBtn.disabled = true;
+      } else if (compData.status === 'pending' || compData.error === 'payment_not_received') {
+        document.getElementById('paymentError').textContent =
+          'Payment not yet detected. Send ' + nanoOpt.amountFormatted + ' to the address above, then click again.';
+        document.getElementById('paymentError').style.display = 'block';
+        completeBtn.disabled = false;
+        completeBtn.textContent = "I've sent the payment — try again";
+      } else if (compData.status === 'underpaid') {
+        document.getElementById('paymentError').textContent =
+          'Payment was underpaid. Please send the exact amount: ' + nanoOpt.amountFormatted;
+        document.getElementById('paymentError').style.display = 'block';
+        completeBtn.disabled = false;
+        completeBtn.textContent = "Try again after sending correct amount";
+      } else if (compData.status === 'expired') {
+        document.getElementById('paymentError').textContent =
+          'Quote expired. Please go back and get a new quote.';
+        document.getElementById('paymentError').style.display = 'block';
+        completeBtn.disabled = true;
+        completeBtn.textContent = 'Expired — get new quote';
+      } else {
+        document.getElementById('paymentError').textContent =
+          'Unexpected response: ' + JSON.stringify(compData);
+        document.getElementById('paymentError').style.display = 'block';
+        completeBtn.disabled = false;
+        completeBtn.textContent = 'Try again';
+      }
+    } catch(e) {
+      document.getElementById('paymentError').textContent = 'Error: ' + e.message;
+      document.getElementById('paymentError').style.display = 'block';
+      completeBtn.disabled = false;
+      completeBtn.textContent = 'Try again';
+    }
+  };
+}
+
+function copyPaymentInfo() {
+  const addr = document.getElementById('payAddress').textContent;
+  const amt = document.getElementById('payAmount').textContent;
+  const text = `Send ${amt} Nano to ${addr}`;
+  navigator.clipboard.writeText(text);
+}
 
 function escapeHtml(str) {
   return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
 fetchModels();
-getNanoPrice();
 </script>
 </body>
 </html>
