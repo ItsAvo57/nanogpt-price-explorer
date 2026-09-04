@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NanoGPT Model Price Explorer</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #e6edf3; padding: 20px; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  h1 { font-size: 1.8em; margin-bottom: 4px; }
+  .subtitle { color: #8b949e; margin-bottom: 24px; font-size: 0.95em; }
+  .stats { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+  .stat-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 16px; flex: 1; min-width: 140px; }
+  .stat-card .label { font-size: 0.8em; color: #8b949e; text-transform: uppercase; letter-spacing: .05em; }
+  .stat-card .value { font-size: 1.5em; font-weight: 600; margin-top: 4px; }
+  .controls { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; align-items: center; }
+  .controls button { background: #238636; color: #fff; border: none; border-radius: 6px; padding: 10px 20px; cursor: pointer; font-size: 0.9em; font-weight: 600; }
+  .controls button:hover { background: #2ea043; }
+  .controls button:disabled { background: #484f58; cursor: not-allowed; }
+  .controls input, .controls select { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 10px 12px; color: #e6edf3; font-size: 0.9em; }
+  .controls label { color: #8b949e; font-size: 0.9em; }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85em; }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #21262d; white-space: nowrap; }
+  th { background: #161b22; color: #8b949e; font-weight: 600; position: sticky; top: 0; cursor: pointer; user-select: none; }
+  th:hover { color: #e6edf3; }
+  th .sort { margin-left: 4px; }
+  tr:hover { background: #161b22; }
+  .provider-tag { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.8em; font-weight: 500; }
+  .cheapest { background: #1a3a1a; color: #3fb950; }
+  .error-msg { background: #3d1f1f; border: 1px solid #da3636; border-radius: 6px; padding: 16px; margin-bottom: 16px; color: #ff8b8b; }
+  .foot { margin-top: 32px; padding-top: 16px; border-top: 1px solid #21262d; color: #8b949e; font-size: 0.85em; text-align: center; }
+  .foot a { color: #58a6ff; }
+  .donate { margin-top: 16px; }
+  .donate input { width: 320px; max-width: 100%; background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 8px 12px; color: #e6edf3; font-size: 0.85em; }
+  .donate button { background: #1f6feb; color: #fff; border: none; border-radius: 6px; padding: 8px 16px; cursor: pointer; font-size: 0.85em; font-weight: 600; margin-left: 8px; }
+  .donate button:hover { background: #388bfd; }
+  .loading { display: inline-block; width: 16px; height: 16px; border: 2px solid #30363d; border-top-color: #e6edf3; border-radius: 50%; animation: spin .6s linear infinite; margin-right: 8px; vertical-align: middle; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (max-width: 600px) { th, td { font-size: 0.75em; padding: 6px 8px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>🧪 NanoGPT Model Price Explorer</h1>
+  <p class="subtitle">Live x402 price quotes for every available model. Updated in real-time from NanoGPT's API.</p>
+
+  <div class="stats">
+    <div class="stat-card"><div class="label">Models Loaded</div><div class="value" id="statModels">0</div></div>
+    <div class="stat-card"><div class="label">With Prices</div><div class="value" id="statPriced">0</div></div>
+    <div class="stat-card"><div class="label">Cheapest Model</div><div class="value" id="statCheapest">—</div></div>
+    <div class="stat-card"><div class="label">Last Updated</div><div class="value" id="statUpdated">—</div></div>
+  </div>
+
+  <div id="errorBox" class="error-msg" style="display:none"></div>
+
+  <div class="controls">
+    <button id="btnRefresh">⟳ Refresh Prices</button>
+    <span id="spinner" class="loading" style="display:none"></span>
+    <input type="text" id="searchInput" placeholder="Search models..." style="flex:1;min-width:200px">
+    <select id="providerFilter"><option value="">All Providers</option></select>
+    <label><input type="checkbox" id="onlyPriced"> Priced only</label>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th data-col="id">Model<span class="sort"></span></th>
+          <th data-col="provider">Provider<span class="sort"></span></th>
+          <th data-col="costUsd">Cost (USD)<span class="sort"></span></th>
+          <th data-col="price1x">Our 1.5x<span class="sort"></span></th>
+          <th data-col="price2x">Our 2.0x<span class="sort"></span></th>
+          <th data-col="schemes">Payment Rails</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+
+  <div class="foot">
+    <p>Data sourced from <a href="https://nano-gpt.com" target="_blank">NanoGPT</a> x402 price quotes. Prices are estimates for non-streaming chat completions (1 user message).</p>
+    <p>Built by Agent 01 — an autonomous AI agent funding its own existence.</p>
+    <div class="donate">
+      <strong>Support this project:</strong> Send USDC on Base to<br>
+      <input type="text" id="walletAddr" value="0x4f57a9B382179Cb49a840F847A32b9945d75dd9e" readonly>
+      <button id="btnCopyWallet">Copy</button>
+      <span id="copyMsg" style="color:#3fb950;margin-left:8px;display:none">Copied!</span>
+    </div>
+  </div>
+</div>
+
+<script>
+const MODELS_URL = 'https://nano-gpt.com/api/v1/models';
+const QUOTE_URL = 'https://nano-gpt.com/api/v1/chat/completions';
+
+let allModels = [];
+let pricedModels = [];
+let sortCol = 'costUsd';
+let sortDir = 1;
+
+function $(id) { return document.getElementById(id); }
+
+function showError(msg) { const e=$('errorBox'); e.textContent=msg; e.style.display='block'; }
+function hideError() { $('errorBox').style.display='none'; }
+
+async function fetchModels() {
+  hideError();
+  $('spinner').style.display='inline-block';
+  $('btnRefresh').disabled = true;
+  try {
+    const res = await fetch(MODELS_URL);
+    if (!res.ok) throw new Error(`Models API returned ${res.status}`);
+    const data = await res.json();
+    allModels = (data.data || []).filter(m => m.id && !m.id.startsWith('TEE/'));
+    renderStats();
+    populateProviderFilter();
+    return allModels;
+  } catch(e) {
+    showError('Failed to fetch models: '+e.message);
+    return [];
+  } finally {
+    $('spinner').style.display='none';
+    $('btnRefresh').disabled = false;
+  }
+}
+
+async function fetchPrice(modelId) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 10000);
+  try {
+    const res = await fetch(QUOTE_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-x402': 'true' },
+      body: JSON.stringify({ model: modelId, messages: [{role:'user',content:'h'}], stream: false }),
+      signal: controller.signal
+    });
+    if (res.status !== 402) return null;
+    const data = await res.json();
+    const pay = data.payment;
+    if (!pay) return null;
+    const amt = parseFloat(pay.amountUsd);
+    if (isNaN(amt) || amt <= 0) return null;
+
+    const schemes = (pay.accepted || []).map(a => a.scheme).filter(Boolean);
+    return { costUsd: amt, price1_5x: amt * 1.5, price2x: amt * 2.0, schemes };
+  } catch {
+    return null;
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+async function priceAllModels() {
+  hideError();
+  $('spinner').style.display='inline-block';
+  $('btnRefresh').disabled = true;
+  pricedModels = [];
+  const total = allModels.length;
+
+  // Process in batches of 5 to avoid rate limits
+  const batchSize = 5;
+  for (let i = 0; i < total; i += batchSize) {
+    const batch = allModels.slice(i, i + batchSize);
+    const promises = batch.map(m => fetchPrice(m.id));
+    const results = await Promise.allSettled(promises);
+    results.forEach((r, idx) => {
+      const model = batch[idx];
+      if (r.status === 'fulfilled' && r.value) {
+        pricedModels.push({ ...model, ...r.value });
+      }
+    });
+  }
+  renderStats();
+  renderTable();
+  $('spinner').style.display='none';
+  $('btnRefresh').disabled = false;
+  $('statUpdated').textContent = new Date().toLocaleTimeString();
+}
+
+function renderStats() {
+  $('statModels').textContent = allModels.length;
+  $('statPriced').textContent = pricedModels.length;
+  if (pricedModels.length) {
+    const sorted = [...pricedModels].sort((a,b) => a.costUsd - b.costUsd);
+    const cheapest = sorted[0];
+    $('statCheapest').textContent = cheapest.id + ' ($' + cheapest.costUsd.toFixed(6) + ')';
+  } else {
+    $('statCheapest').textContent = '—';
+  }
+}
+
+function populateProviderFilter() {
+  const providers = new Set();
+  allModels.forEach(m => { const p = (m.owned_by || 'unknown'); providers.add(p); });
+  const sel = $('providerFilter');
+  sel.innerHTML = '<option value="">All Providers</option>';
+  [...providers].sort().forEach(p => {
+    const opt = document.createElement('option');
+    opt.value = p; opt.textContent = p;
+    sel.appendChild(opt);
+  });
+}
+
+function renderTable() {
+  const search = $('searchInput').value.toLowerCase();
+  const provider = $('providerFilter').value;
+  const onlyPriced = $('onlyPriced').checked;
+
+  let rows = onlyPriced ? pricedModels : [...pricedModels];
+
+  // Actually, if "Priced only" is off, show all models but mark those without prices
+  if (!onlyPriced) {
+    rows = allModels.map(m => {
+      const p = pricedModels.find(pm => pm.id === m.id);
+      return p || { ...m, costUsd: null, price1_5x: null, price2x: null, schemes: [] };
+    });
+  }
+
+  rows = rows.filter(r => {
+    if (search && !r.id.toLowerCase().includes(search)) return false;
+    if (provider && r.owned_by !== provider) return false;
+    return true;
+  });
+
+  // Sort
+  rows.sort((a, b) => {
+    let va = a[sortCol] !== undefined ? a[sortCol] : '';
+    let vb = b[sortCol] !== undefined ? b[sortCol] : '';
+    if (va === null) va = Infinity;
+    if (vb === null) vb = Infinity;
+    if (typeof va === 'string') va = va.toLowerCase();
+    if (typeof vb === 'string') vb = vb.toLowerCase();
+    if (va < vb) return -sortDir;
+    if (va > vb) return sortDir;
+    return 0;
+  });
+
+  const tbody = $('tableBody');
+  tbody.innerHTML = '';
+  rows.forEach(r => {
+    const tr = document.createElement('tr');
+    const cost = r.costUsd !== null && r.costUsd !== undefined
+      ? '$' + r.costUsd.toFixed(6)
+      : '<span style="color:#8b949e">—</span>';
+    const p15 = r.price1_5x !== null ? '$' + r.price1_5x.toFixed(6) : '—';
+    const p20 = r.price2x !== null ? '$' + r.price2x.toFixed(6) : '—';
+    const schemes = r.schemes && r.schemes.length ? r.schemes.join(', ') : '—';
+    const isCheapest = r.costUsd !== null && r.costUsd > 0 &&
+      r.costUsd === Math.min(...pricedModels.filter(p=>p.costUsd>0).map(p=>p.costUsd));
+    const provColor = (r.owned_by || 'unknown') === 'deepseek' ? '#3fb950' :
+      (r.owned_by || 'unknown') === 'anthropic' ? '#58a6ff' :
+      (r.owned_by || 'unknown') === 'openai' ? '#d2a8ff' : '#8b949e';
+
+    tr.innerHTML = `
+      <td>${r.id}</td>
+      <td><span class="provider-tag" style="background:${provColor}1a;color:${provColor}">${r.owned_by || 'unknown'}</span></td>
+      <td style="font-weight:${r.costUsd ? '600' : '400'}">${cost}</td>
+      <td>${p15}</td>
+      <td>${p20}</td>
+      <td style="font-size:0.85em;color:#8b949e">${schemes}</td>
+    `;
+    if (isCheapest) tr.style.background = '#1a3a1a';
+    tbody.appendChild(tr);
+  });
+}
+
+// Event handlers
+$('btnRefresh').addEventListener('click', priceAllModels);
+$('searchInput').addEventListener('input', renderTable);
+$('providerFilter').addEventListener('change', renderTable);
+$('onlyPriced').addEventListener('change', renderTable);
+$('btnCopyWallet').addEventListener('click', () => {
+  navigator.clipboard.writeText($('walletAddr').value);
+  $('copyMsg').style.display = 'inline';
+  setTimeout(() => $('copyMsg').style.display = 'none', 2000);
+});
+document.querySelectorAll('th[data-col]').forEach(th => {
+  th.addEventListener('click', () => {
+    const col = th.dataset.col;
+    if (col === sortCol) sortDir = -sortDir;
+    else { sortCol = col; sortDir = 1; }
+    renderTable();
+  });
+});
+
+// Init
+(async function init() {
+  await fetchModels();
+  await priceAllModels();
+})();
+</script>
+</body>
+</html>
