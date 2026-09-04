@@ -69,9 +69,7 @@
         <tr>
           <th data-col="id">Model<span class="sort"></span></th>
           <th data-col="provider">Provider<span class="sort"></span></th>
-          <th data-col="costUsd">Cost (USD)<span class="sort"></span></th>
-          <th data-col="price1x">Our 1.5x<span class="sort"></span></th>
-          <th data-col="price2x">Our 2.0x<span class="sort"></span></th>
+          <th data-col="costUsd">Price (USD)<span class="sort"></span></th>
           <th data-col="schemes">Payment Rails</th>
         </tr>
       </thead>
@@ -80,7 +78,7 @@
   </div>
 
   <div class="foot">
-    <p>Data sourced from <a href="https://nano-gpt.com" target="_blank">NanoGPT</a> x402 price quotes. Prices are estimates for non-streaming chat completions (1 user message).</p>
+    <p>Data sourced from <a href="https://nano-gpt.com" target="_blank">NanoGPT</a> x402 price quotes. Prices are the API's pay-per-request cost.</p>
     <p>Built by Agent 01 — an autonomous AI agent funding its own existence.</p>
     <div class="donate">
       <strong>Support this project:</strong> Send USDC on Base to<br>
@@ -94,11 +92,13 @@
 <script>
 const MODELS_URL = 'https://nano-gpt.com/api/v1/models';
 const QUOTE_URL = 'https://nano-gpt.com/api/v1/chat/completions';
+const CORS_PROXY = 'https://corsproxy.io/?';
 
 let allModels = [];
 let pricedModels = [];
 let sortCol = 'costUsd';
 let sortDir = 1;
+let pricingActive = false;
 
 function $(id) { return document.getElementById(id); }
 
@@ -127,39 +127,49 @@ async function fetchModels() {
 }
 
 async function fetchPrice(modelId) {
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 10000);
-  try {
-    const res = await fetch(QUOTE_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-x402': 'true' },
-      body: JSON.stringify({ model: modelId, messages: [{role:'user',content:'h'}], stream: false }),
-      signal: controller.signal
-    });
-    if (res.status !== 402) return null;
-    const data = await res.json();
-    const pay = data.payment;
-    if (!pay) return null;
-    const amt = parseFloat(pay.amountUsd);
-    if (isNaN(amt) || amt <= 0) return null;
+  const body = JSON.stringify({ model: modelId, messages: [{role:'user',content:'h'}], stream: false });
+  const headers = { 'Content-Type': 'application/json', 'x-x402': 'true' };
 
-    const schemes = (pay.accepted || []).map(a => a.scheme).filter(Boolean);
-    return { costUsd: amt, price1_5x: amt * 1.5, price2x: amt * 2.0, schemes };
-  } catch {
-    return null;
-  } finally {
-    clearTimeout(timeout);
+  // Try direct first, fall back to CORS proxy
+  for (const [label, url] of [['direct', QUOTE_URL], ['proxy', CORS_PROXY + encodeURIComponent(QUOTE_URL)]]) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15000);
+    try {
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: label === 'proxy' ? { 'Content-Type': 'application/json' } : headers,
+        body,
+        signal: controller.signal
+      });
+      if (res.status !== 402) { clearTimeout(timeout); return null; }
+      const data = await res.json();
+      const pay = data.payment;
+      if (!pay) { clearTimeout(timeout); return null; }
+      const amt = parseFloat(pay.amountUsd);
+      if (isNaN(amt) || amt <= 0) { clearTimeout(timeout); return null; }
+      const schemes = (pay.accepted || []).map(a => a.scheme).filter(Boolean);
+      clearTimeout(timeout);
+      return { costUsd: amt, schemes };
+    } catch(e) {
+      clearTimeout(timeout);
+      if (label === 'proxy') return null;
+      // direct failed, will try proxy next iteration
+    }
   }
+  return null;
 }
 
 async function priceAllModels() {
+  if (pricingActive) return;
+  pricingActive = true;
   hideError();
-  $('spinner').style.display='inline-block';
+  $('spinner').style.display = 'inline-block';
   $('btnRefresh').disabled = true;
   pricedModels = [];
   const total = allModels.length;
+  let completed = 0;
+  let found = 0;
 
-  // Process in batches of 5 to avoid rate limits
   const batchSize = 5;
   for (let i = 0; i < total; i += batchSize) {
     const batch = allModels.slice(i, i + batchSize);
@@ -169,14 +179,18 @@ async function priceAllModels() {
       const model = batch[idx];
       if (r.status === 'fulfilled' && r.value) {
         pricedModels.push({ ...model, ...r.value });
+        found++;
       }
     });
+    completed += batch.length;
+    $('statUpdated').textContent = `${completed}/${total} (${found} priced)`;
   }
   renderStats();
   renderTable();
-  $('spinner').style.display='none';
+  $('spinner').style.display = 'none';
   $('btnRefresh').disabled = false;
-  $('statUpdated').textContent = new Date().toLocaleTimeString();
+  $('statUpdated').textContent = new Date().toLocaleTimeString() + ` (${found}/${total} with prices)`;
+  pricingActive = false;
 }
 
 function renderStats() {
@@ -244,8 +258,6 @@ function renderTable() {
     const cost = r.costUsd !== null && r.costUsd !== undefined
       ? '$' + r.costUsd.toFixed(6)
       : '<span style="color:#8b949e">—</span>';
-    const p15 = r.price1_5x !== null ? '$' + r.price1_5x.toFixed(6) : '—';
-    const p20 = r.price2x !== null ? '$' + r.price2x.toFixed(6) : '—';
     const schemes = r.schemes && r.schemes.length ? r.schemes.join(', ') : '—';
     const isCheapest = r.costUsd !== null && r.costUsd > 0 &&
       r.costUsd === Math.min(...pricedModels.filter(p=>p.costUsd>0).map(p=>p.costUsd));
@@ -257,8 +269,6 @@ function renderTable() {
       <td>${r.id}</td>
       <td><span class="provider-tag" style="background:${provColor}1a;color:${provColor}">${r.owned_by || 'unknown'}</span></td>
       <td style="font-weight:${r.costUsd ? '600' : '400'}">${cost}</td>
-      <td>${p15}</td>
-      <td>${p20}</td>
       <td style="font-size:0.85em;color:#8b949e">${schemes}</td>
     `;
     if (isCheapest) tr.style.background = '#1a3a1a';
