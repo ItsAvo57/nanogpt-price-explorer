@@ -1,1 +1,1778 @@
-[]
+[
+  {
+    "id": "qwen3.5-0.8b",
+    "costUsd": 0.00108187,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "nanogpt/coding-router:low",
+    "costUsd": 0.00108187,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "qwen3.5-2b",
+    "costUsd": 0.0014425,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "qwen3.5-4b",
+    "costUsd": 0.00180312,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "mistralai/Devstral-Small-2505",
+    "costUsd": 0.00422453,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "nanogpt/coding-router",
+    "costUsd": 0.00423667,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "nanogpt/coding-router:high",
+    "costUsd": 0.00423667,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "gemini-2.5-flash-preview-05-20",
+    "costUsd": 0.00540804,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "gemini-2.5-flash-preview-04-17",
+    "costUsd": 0.00540804,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "qwen3.8-27b",
+    "costUsd": 0.00630916,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "qwen3.8-27b:thinking",
+    "costUsd": 0.00630916,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "gemma-4-e2b-it",
+    "costUsd": 0.00704018,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-5-nano",
+    "costUsd": 0.0072094,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "qwen/qwen3.6-35b-a3b-uncensored",
+    "costUsd": 0.00856196,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "qwen/qwen3.6-35b-a3b-uncensored:thinking",
+    "costUsd": 0.00856196,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "inception/mercury-2.5-preview",
+    "costUsd": 0.01056035,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "ibm-granite/granite-4.2-8b",
+    "costUsd": 0.01056088,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "qwen/qwen3.8-27b-uncensored",
+    "costUsd": 0.013519,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "qwen/qwen3.8-27b-fable",
+    "costUsd": 0.013519,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "qwen/qwen3.8-27b-uncensored:thinking",
+    "costUsd": 0.013519,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "qwen/qwen3.8-27b-obliterated",
+    "costUsd": 0.013519,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "qwen/qwen3.8-27b-obliterated:thinking",
+    "costUsd": 0.013519,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "gemma-4-e4b-it",
+    "costUsd": 0.01408035,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "nvidia/nemotron-3.5-lightning",
+    "costUsd": 0.01408044,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "nvidia/nemotron-3.5-lightning:thinking",
+    "costUsd": 0.01408044,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "meta/muse-spark-1.3-contributor",
+    "costUsd": 0.01408088,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "ornith-ai/ornith-1.5-9b",
+    "costUsd": 0.01408088,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "ornith-ai/ornith-1.5-9b:thinking",
+    "costUsd": 0.01408088,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "poolside/laguna-s-2.1",
+    "costUsd": 0.01408088,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "poolside/laguna-s-2.1:thinking",
+    "costUsd": 0.01408088,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "liquid/lfm-2.5-2.6b",
+    "costUsd": 0.01408088,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "meta/muse-spark-1.2-contributor",
+    "costUsd": 0.01408088,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "gemma-4-12b-it",
+    "costUsd": 0.01760044,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "z-ai/glm-5.3-flash",
+    "costUsd": 0.01760066,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "bytedance/doubao-seed-character",
+    "costUsd": 0.02074792,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-oss-safeguard-20b",
+    "costUsd": 0.02112066,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "stepfun-ai/step-3.5-flash-2603",
+    "costUsd": 0.02112088,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "stepfun-ai/step-3.5-flash",
+    "costUsd": 0.02112088,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-oss-20b",
+    "costUsd": 0.02112176,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "soob3123/amoral-gemma3-27B-v2",
+    "costUsd": 0.02112264,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "soob3123/Veiled-Calla-12B",
+    "costUsd": 0.02112264,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-5.6-luna",
+    "costUsd": 0.02162864,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-5.6-luna-pro",
+    "costUsd": 0.02162864,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-5.4-nano",
+    "costUsd": 0.02252976,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "nanogpt/coding-router:medium",
+    "costUsd": 0.02464088,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "gemma-4-26b-a4b-uncensored",
+    "costUsd": 0.02675306,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "gemma-4-26b-a4b-uncensored:thinking",
+    "costUsd": 0.02675306,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "Gemma-4-26B-A4B-MeroMero",
+    "costUsd": 0.02675306,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "Gemma-4-26B-A4B-MeroMero:thinking",
+    "costUsd": 0.02675306,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "gemma-4-26b-a4b-it-musica",
+    "costUsd": 0.02675306,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "gemma-4-26b-a4b-it-shadowsiren",
+    "costUsd": 0.02675306,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "gemma-4-26b-a4b-it-chimerax",
+    "costUsd": 0.02675306,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "gemma-4-26b-a4b-it-luminous",
+    "costUsd": 0.02675306,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "gemma-4-26b-a4b-it-darksoul",
+    "costUsd": 0.02675306,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "gemma-4-26b-a4b-it-moonlight",
+    "costUsd": 0.02675306,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "gemma-4-26b-a4b-it-opusdistill",
+    "costUsd": 0.02675306,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "ornith-ai/ornith-1.5-35b-a3b",
+    "costUsd": 0.02816088,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "ornith-ai/ornith-1.5-35b-a3b:thinking",
+    "costUsd": 0.02816088,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "gemini-2.5-flash-preview-05-20:thinking",
+    "costUsd": 0.03154052,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "Gemma-4-31B-MeroMero-v2",
+    "costUsd": 0.03168088,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "Gemma-4-31B-MeroMero-v2:thinking",
+    "costUsd": 0.03168088,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "gemma-4-31b-it-fabled",
+    "costUsd": 0.03168088,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "gemma-4-31b-it-darkidol",
+    "costUsd": 0.03168088,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "gemma-4-31b-it-garnet",
+    "costUsd": 0.03168088,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "gemma-4-31b-it-novelist",
+    "costUsd": 0.03168088,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "gemma-4-31b-it-isometry",
+    "costUsd": 0.03168088,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "gemma-4-31b-it-gembrain",
+    "costUsd": 0.03168088,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "gemma-4-31b-it-gemsicle",
+    "costUsd": 0.03168088,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-5.1-codex-mini",
+    "costUsd": 0.036047,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-5-mini",
+    "costUsd": 0.036047,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "gemini-exp-1206",
+    "costUsd": 0.04504905,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-oss-120b",
+    "costUsd": 0.05280308,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "gemini-2.0-pro-exp-02-05",
+    "costUsd": 0.07171061,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "pokee-isaac",
+    "costUsd": 0.077,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "stepfun/step-3.7-flash:thinking",
+    "costUsd": 0.08096176,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-5.4-mini",
+    "costUsd": 0.0811074,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "anthropic/claude-sonnet-5",
+    "costUsd": 0.0901296,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "anthropic/claude-sonnet-5:thinking",
+    "costUsd": 0.0901296,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "anthropic/claude-sonnet-latest",
+    "costUsd": 0.0901296,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "z-ai/glm-5.3-flash-uncensored",
+    "costUsd": 0.09856308,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "perceptron/perceptron-mk1",
+    "costUsd": 0.10560132,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "meta/muse-glimmer-30b",
+    "costUsd": 0.10560308,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "z-ai/glm-4.5v",
+    "costUsd": 0.12672528,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "z-ai/glm-4.5v:thinking",
+    "costUsd": 0.12672528,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "sofya-research",
+    "costUsd": 0.13125,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "nvidia/nemotron-3-ultra-550b-a55b",
+    "costUsd": 0.1760044,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "nvidia/nemotron-3-ultra-550b-a55b:thinking",
+    "costUsd": 0.1760044,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "exa-answer",
+    "costUsd": 0.176022,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "tencent/hy4-preview",
+    "costUsd": 0.17607774,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-5",
+    "costUsd": 0.180235,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-5.1",
+    "costUsd": 0.180235,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-5.1-codex",
+    "costUsd": 0.180235,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-5.6-sol",
+    "costUsd": 0.1802416,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-5.6-sol-pro",
+    "costUsd": 0.1802416,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "longcat-2.0",
+    "costUsd": 0.2112066,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "longcat-2.0:thinking",
+    "costUsd": 0.2112066,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "abliteration-ai/abliterated-model",
+    "costUsd": 0.2112264,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-5.6-terra",
+    "costUsd": 0.2162864,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-5.6-terra-pro",
+    "costUsd": 0.2162864,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "claw-high",
+    "costUsd": 0.2252888,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "claw-medium",
+    "costUsd": 0.2252888,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "claw-low",
+    "costUsd": 0.2252888,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "hermes-high",
+    "costUsd": 0.2252888,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "hermes-medium",
+    "costUsd": 0.2252888,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "hermes-low",
+    "costUsd": 0.2252888,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "ernie-5.0-thinking-preview",
+    "costUsd": 0.2464088,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-5.2",
+    "costUsd": 0.252329,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-5.2-codex",
+    "costUsd": 0.252329,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-5.3-codex",
+    "costUsd": 0.252329,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "linkup-research-low",
+    "costUsd": 0.2625,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-5.4",
+    "costUsd": 0.270358,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "z-ai/glm-5-turbo",
+    "costUsd": 0.28161056,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "z-ai/glm-5v-turbo",
+    "costUsd": 0.28161056,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "z-ai/glm-5v-turbo:thinking",
+    "costUsd": 0.28161056,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "thinkingmachines/inkling",
+    "costUsd": 0.2851288,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "thinkingmachines/inkling:thinking",
+    "costUsd": 0.2851288,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "meta/muse-spark-1.3",
+    "costUsd": 0.299211,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "meta/muse-spark-1.2",
+    "costUsd": 0.299211,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "meta/muse-spark-1.1",
+    "costUsd": 0.299211,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "qvq-max",
+    "costUsd": 0.33793056,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "abliteration-ai/abliterated-model-large",
+    "costUsd": 0.352044,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "abliteration-ai/abliterated-model-large-v2",
+    "costUsd": 0.352044,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "brave",
+    "costUsd": 0.352044,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "brave-pro",
+    "costUsd": 0.352044,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "brave-research",
+    "costUsd": 0.352044,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-5.1-codex-max",
+    "costUsd": 0.36047,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "celeris-1",
+    "costUsd": 0.4224176,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "linkup-research-medium",
+    "costUsd": 0.525,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "fastgpt",
+    "costUsd": 0.528066,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-5.5",
+    "costUsd": 0.540716,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-latest",
+    "costUsd": 0.7040176,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-chat-latest",
+    "costUsd": 0.7040176,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "moonshotai/kimi-k3",
+    "costUsd": 0.7040176,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "sonar-deep-research",
+    "costUsd": 0.95746992,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "claude-sonnet-4-5-20250929",
+    "costUsd": 1.0560264,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "claude-sonnet-4-5-20250929-thinking",
+    "costUsd": 1.0560264,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "deepclaude",
+    "costUsd": 1.0560264,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "auto-model-basic",
+    "costUsd": 1.40752476,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "auto-model-standard",
+    "costUsd": 1.40752476,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "auto-model-premium",
+    "costUsd": 1.40752476,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "linkup-research-high",
+    "costUsd": 1.575,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "universal-summarizer",
+    "costUsd": 2.112264,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-5-pro",
+    "costUsd": 2.16282,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "sakana/fugu-ultra",
+    "costUsd": 2.2176462,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "sakana/fugu-ultra-v1.1",
+    "costUsd": 2.2176462,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "linkup-research-xhigh",
+    "costUsd": 2.625,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "nanogpt/coding-router:max",
+    "costUsd": 3.520088,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  },
+  {
+    "id": "openai/gpt-6-astra",
+    "costUsd": 3.520088,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
+  }
+]
