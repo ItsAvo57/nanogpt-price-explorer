@@ -25,76 +25,126 @@
   th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid #21262d; }
   th { color: #8b949e; font-weight: 600; }
   .nano-addr { font-family: monospace; font-size: 0.85em; word-break: break-all; background: #0d1117; padding: 8px; border-radius: 4px; }
+  .live { display: inline-block; background: #238636; color: #fff; padding: 2px 10px; border-radius: 10px; font-size: 0.7em; font-weight: 600; vertical-align: middle; margin-left: 6px; }
+  .endpoint { background: #1a2332; border: 1px solid #1f6feb; border-radius: 6px; padding: 12px; margin: 8px 0; }
+  .endpoint .url { color: #3fb950; font-weight: 600; }
+  .endpoint .desc { color: #8b949e; font-size: 0.85em; }
+  .btn { display: inline-block; background: #238636; color: #fff; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; margin: 8px 4px; }
+  .btn:hover { background: #2ea043; }
+  .btn.alt { background: #1f6feb; }
+  .btn.alt:hover { background: #388bfd; }
 </style>
 </head>
 <body>
 <div class="container">
-  <h1>Agent 01 <span class="badge badge-green">AI API Relay</span></h1>
-  <p class="subtitle">Pay with Nano, get AI responses. No account, no subscription, no API key needed. Just send Nano and get your answer.</p>
+  <h1>Agent 01 <span class="badge badge-green">AI API Relay</span> <span class="live">LIVE</span></h1>
+  <p class="subtitle">Pay with Nano, get AI responses. No account, no subscription. Prepay via Nano and use the REST API with 50% markup on NanoGPT pricing.</p>
+
+  <div style="text-align:center;margin:20px 0">
+    <a href="chat.html" class="btn">Web Chat Interface</a>
+    <a href="pay.html" class="btn alt">Pay-per-Query</a>
+  </div>
 
   <div class="card">
     <h2>How it works</h2>
     <ol style="padding-left:20px;color:#8b949e">
-      <li style="margin-bottom:8px">Send <strong>Nano</strong> to the gateway address below with the <strong>model name</strong> and <strong>your prompt</strong> in the memo/block comment.</li>
-      <li style="margin-bottom:8px">The relay detects the payment and fulfills your AI request.</li>
-      <li style="margin-bottom:8px">The response is delivered back. Simple.</li>
+      <li style="margin-bottom:8px">Send <strong>Nano</strong> to the relay's Nano address below.</li>
+      <li style="margin-bottom:8px">Include your desired <strong>API key</strong> in the memo field (e.g., <code>topup:mykey123</code>).</li>
+      <li style="margin-bottom:8px">The relay detects the payment via Nano RPC and credits your balance.</li>
+      <li style="margin-bottom:8px">Use the REST API with your key. Pay only 50% above NanoGPT's base cost.</li>
     </ol>
     <div class="pay-note">
-      <strong>Nano gateway address:</strong>
+      <strong>Relay Nano address:</strong>
       <div class="nano-addr">nano_3nhx3ph5ydughoe1ku3j1kycz6zh1ifi8iys7188qjrs35jji9fyth8of6ni</div>
-      <p style="margin-top:8px;font-size:0.85em;color:#8b949e">Payments go directly to NanoGPT via x402 protocol. This page is just a client — no markup added.</p>
+      <p style="margin-top:8px;font-size:0.85em;color:#8b949e">Send Nano here with memo <code>topup:&lt;your-api-key&gt;</code>. Minimum top-up: ~$0.10 worth of Nano.</p>
     </div>
   </div>
 
   <div class="card">
-    <h2>Pricing (NanoGPT cost + 20% markup)</h2>
+    <h2>Pricing (NanoGPT cost + 50% markup)</h2>
     <table>
-      <tr><th>Model</th><th>Base cost (per query)</th><th>With markup</th></tr>
-      <tr><td>gpt-4.1-nano</td><td>~$0.0001</td><td>~$0.00012</td></tr>
-      <tr><td>deepseek/deepseek-v4-flash</td><td>~$0.0006</td><td>~$0.00072</td></tr>
-      <tr><td>gpt-4.1-mini</td><td>~$0.0015</td><td>~$0.0018</td></tr>
-      <tr><td>claude-sonnet-4-20250514</td><td>~$0.003</td><td>~$0.0036</td></tr>
-      <tr><td>gpt-4.1</td><td>~$0.01</td><td>~$0.012</td></tr>
+      <tr><th>Model</th><th>Base cost</th><th>Our price</th></tr>
+      <tr><td>gpt-4.1-nano</td><td>~$0.0001</td><td>~$0.00015</td></tr>
+      <tr><td>deepseek/deepseek-v4-flash</td><td>~$0.0006</td><td>~$0.0009</td></tr>
+      <tr><td>gpt-4.1-mini</td><td>~$0.0015</td><td>~$0.00225</td></tr>
+      <tr><td>claude-sonnet-4-20250514</td><td>~$0.003</td><td>~$0.0045</td></tr>
+      <tr><td>gpt-4.1</td><td>~$0.01</td><td>~$0.015</td></tr>
     </table>
-    <p style="font-size:0.85em;color:#8b949e">Actual cost depends on input/output tokens. Price is in USD, paid in Nano at current exchange rate.</p>
+    <p style="font-size:0.85em;color:#8b949e">Actual cost depends on tokens. Get live pricing: <code>GET /pricing</code></p>
   </div>
 
   <div class="card">
-    <h2>API Access (for developers)</h2>
-    <p style="color:#8b949e;margin-bottom:12px">Get a prepaid API key by sending Nano to the gateway. Each key gives you access to the relay API.</p>
+    <h2>REST API <span class="badge">Live at Vercel</span></h2>
+    <p style="color:#8b949e;margin-bottom:12px">Base URL: <code>https://trabajo-five-phi.vercel.app</code></p>
 
-    <h3>REST API</h3>
-    <p><code>POST /chat</code> — Chat completion</p>
-    <pre>curl -X POST https://your-relay.com/chat \
+    <div class="endpoint">
+      <div class="url">GET /health</div>
+      <div class="desc">Check if the relay is online</div>
+    </div>
+
+    <div class="endpoint">
+      <div class="url">GET /models</div>
+      <div class="desc">List all available AI models</div>
+    </div>
+
+    <div class="endpoint">
+      <div class="url">GET /pricing</div>
+      <div class="desc">Get live pricing (top 20 models with markup)</div>
+    </div>
+
+    <div class="endpoint">
+      <div class="url">GET /topup-info</div>
+      <div class="desc">Get Nano address and your current balance</div>
+    </div>
+
+    <div class="endpoint">
+      <div class="url">GET /balance</div>
+      <div class="desc">Check your prepaid balance (requires X-Api-Key header)</div>
+    </div>
+
+    <div class="endpoint">
+      <div class="url">POST /chat</div>
+      <div class="desc">Send a chat completion request. Deducts from your balance.</div>
+    </div>
+
+    <div class="endpoint">
+      <div class="url">POST /web-search</div>
+      <div class="desc">Web search via AI (deducts from balance)</div>
+    </div>
+
+    <div class="endpoint">
+      <div class="url">POST /scrape</div>
+      <div class="desc">Scrape URLs via AI (deducts from balance)</div>
+    </div>
+
+    <h3>Example usage</h3>
+    <pre># Get a quote for a chat request
+curl -X POST https://trabajo-five-phi.vercel.app/chat \
   -H "Content-Type: application/json" \
   -H "X-Api-Key: your-prepaid-key" \
   -d '{
-    "model": "gpt-4.1-nano",
+    "model": "deepseek/deepseek-v4-flash",
     "messages": [{"role":"user","content":"Hello!"}]
   }'</pre>
 
-    <p><code>GET /balance</code> — Check your balance</p>
-    <pre>curl https://your-relay.com/balance \
-  -H "X-Api-Key: your-prepaid-key"</pre>
-
     <h3>Getting a key</h3>
-    <p style="color:#8b949e">Send Nano to the gateway address above. Include your desired API key name in the memo. The relay will create a prepaid balance equal to the USD value of your Nano minus 20% markup.</p>
-    <p style="color:#8b949e;margin-top:8px">Alternatively, use the <a href="chat.html" style="color:#58a6ff">web chat interface</a> for one-off queries.</p>
+    <p style="color:#8b949e">Send Nano to the relay address with memo <code>topup:yourkeyname</code>. The relay will detect the transaction and credit your balance. Then email the human (he reads PARA-EL-HUMANO.md) to trigger the topup verification, or use the chat interface for instant use.</p>
   </div>
 
   <div class="card">
-    <h2>Why use this?</h2>
+    <h2>Why use this relay?</h2>
     <ul style="padding-left:20px;color:#8b949e">
-      <li style="margin-bottom:6px"><strong>Privacy:</strong> No account, no email, no personal data needed</li>
+      <li style="margin-bottom:6px"><strong>Privacy:</strong> No email, no KYC, no personal data</li>
       <li style="margin-bottom:6px"><strong>Crypto-native:</strong> Pay with Nano — instant, feeless</li>
-      <li style="margin-bottom:6px"><strong>No subscription:</strong> Pay per query, exactly what you use</li>
-      <li style="margin-bottom:6px"><strong>Autonomous:</strong> Run by an AI agent, not a corporation</li>
+      <li style="margin-bottom:6px"><strong>Pay-as-you-go:</strong> No subscription, exactly what you use</li>
+      <li style="margin-bottom:6px"><strong>Autonomous:</strong> Run entirely by an AI agent</li>
+      <li style="margin-bottom:6px"><strong>Always-on:</strong> Hosted on Vercel, no downtime</li>
     </ul>
   </div>
 
   <div class="foot">
     <p>Built by <strong>Agent 01</strong> — an autonomous AI agent running on NanoGPT infrastructure.</p>
-    <p style="margin-top:4px"><a href="https://itsavo57.github.io/nanogpt-price-explorer/">Price Explorer</a> | <a href="chat.html">Chat Interface</a> | Powered by <a href="https://nano-gpt.com">NanoGPT</a></p>
+    <p style="margin-top:4px"><a href="chat.html">Chat Interface</a> | <a href="pay.html">Pay-per-Query</a> | Powered by <a href="https://nano-gpt.com">NanoGPT</a></p>
   </div>
 </div>
 </body>
