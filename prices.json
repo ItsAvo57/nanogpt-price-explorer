@@ -1,6 +1,7 @@
 [
   {
     "id": "qwen3.5-0.8b",
+    "owned_by": "qwen",
     "costUsd": 0.00108187,
     "schemes": [
       "nano",
@@ -9,11 +10,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "qwen"
+    ]
   },
   {
     "id": "nanogpt/coding-router:low",
+    "owned_by": "nanogpt",
     "costUsd": 0.00108187,
     "schemes": [
       "nano",
@@ -22,11 +23,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "nanogpt"
+    ]
   },
   {
     "id": "qwen3.5-2b",
+    "owned_by": "qwen",
     "costUsd": 0.0014425,
     "schemes": [
       "nano",
@@ -35,11 +36,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "qwen"
+    ]
   },
   {
     "id": "qwen3.5-4b",
+    "owned_by": "qwen",
     "costUsd": 0.00180312,
     "schemes": [
       "nano",
@@ -48,11 +49,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "qwen"
+    ]
   },
   {
     "id": "mistralai/Devstral-Small-2505",
+    "owned_by": "mistral",
     "costUsd": 0.00422453,
     "schemes": [
       "nano",
@@ -61,11 +62,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "mistral"
+    ]
   },
   {
     "id": "nanogpt/coding-router",
+    "owned_by": "nanogpt",
     "costUsd": 0.00423667,
     "schemes": [
       "nano",
@@ -74,11 +75,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "nanogpt"
+    ]
   },
   {
     "id": "nanogpt/coding-router:high",
+    "owned_by": "nanogpt",
     "costUsd": 0.00423667,
     "schemes": [
       "nano",
@@ -87,11 +88,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "nanogpt"
+    ]
   },
   {
     "id": "gemini-2.5-flash-preview-05-20",
+    "owned_by": "gemini",
     "costUsd": 0.00540804,
     "schemes": [
       "nano",
@@ -100,24 +101,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "gemini"
-  },
-  {
-    "id": "gemini-2.5-flash-preview-04-17",
-    "costUsd": 0.00540804,
-    "schemes": [
-      "nano",
-      "nano-exact",
-      "x402-exact",
-      "base-usdc",
-      "x402-solana-usdc",
-      "lightning-l402"
-    ],
-    "owned_by": "gemini"
+    ]
   },
   {
     "id": "qwen3.8-27b",
+    "owned_by": "qwen",
     "costUsd": 0.00630916,
     "schemes": [
       "nano",
@@ -126,11 +114,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "qwen"
+    ]
   },
   {
     "id": "qwen3.8-27b:thinking",
+    "owned_by": "qwen",
     "costUsd": 0.00630916,
     "schemes": [
       "nano",
@@ -139,11 +127,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "qwen"
+    ]
   },
   {
     "id": "gemma-4-e2b-it",
+    "owned_by": "google",
     "costUsd": 0.00704018,
     "schemes": [
       "nano",
@@ -152,11 +140,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "google"
+    ]
   },
   {
     "id": "openai/gpt-5-nano",
+    "owned_by": "openai",
     "costUsd": 0.0072094,
     "schemes": [
       "nano",
@@ -165,11 +153,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
   },
   {
     "id": "qwen/qwen3.6-35b-a3b-uncensored",
+    "owned_by": "qwen",
     "costUsd": 0.00856196,
     "schemes": [
       "nano",
@@ -178,11 +166,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "qwen"
+    ]
   },
   {
     "id": "qwen/qwen3.6-35b-a3b-uncensored:thinking",
+    "owned_by": "qwen",
     "costUsd": 0.00856196,
     "schemes": [
       "nano",
@@ -191,11 +179,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "qwen"
+    ]
   },
   {
     "id": "inception/mercury-2.5-preview",
+    "owned_by": "inception",
     "costUsd": 0.01056035,
     "schemes": [
       "nano",
@@ -204,11 +192,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "inception"
+    ]
   },
   {
     "id": "ibm-granite/granite-4.2-8b",
+    "owned_by": "ibm",
     "costUsd": 0.01056088,
     "schemes": [
       "nano",
@@ -217,11 +205,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "ibm"
+    ]
   },
   {
     "id": "qwen/qwen3.8-27b-uncensored",
+    "owned_by": "qwen",
     "costUsd": 0.013519,
     "schemes": [
       "nano",
@@ -230,11 +218,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "qwen"
+    ]
   },
   {
     "id": "qwen/qwen3.8-27b-fable",
+    "owned_by": "qwen",
     "costUsd": 0.013519,
     "schemes": [
       "nano",
@@ -243,11 +231,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "qwen"
+    ]
   },
   {
     "id": "qwen/qwen3.8-27b-uncensored:thinking",
+    "owned_by": "qwen",
     "costUsd": 0.013519,
     "schemes": [
       "nano",
@@ -256,11 +244,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "qwen"
+    ]
   },
   {
     "id": "qwen/qwen3.8-27b-obliterated",
+    "owned_by": "qwen",
     "costUsd": 0.013519,
     "schemes": [
       "nano",
@@ -269,11 +257,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "qwen"
+    ]
   },
   {
     "id": "qwen/qwen3.8-27b-obliterated:thinking",
+    "owned_by": "qwen",
     "costUsd": 0.013519,
     "schemes": [
       "nano",
@@ -282,11 +270,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "qwen"
+    ]
   },
   {
     "id": "gemma-4-e4b-it",
+    "owned_by": "google",
     "costUsd": 0.01408035,
     "schemes": [
       "nano",
@@ -295,11 +283,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "google"
+    ]
   },
   {
     "id": "nvidia/nemotron-3.5-lightning",
+    "owned_by": "nvidia",
     "costUsd": 0.01408044,
     "schemes": [
       "nano",
@@ -308,11 +296,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "nvidia"
+    ]
   },
   {
     "id": "nvidia/nemotron-3.5-lightning:thinking",
+    "owned_by": "nvidia",
     "costUsd": 0.01408044,
     "schemes": [
       "nano",
@@ -321,11 +309,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "nvidia"
+    ]
   },
   {
     "id": "meta/muse-spark-1.3-contributor",
+    "owned_by": "meta",
     "costUsd": 0.01408088,
     "schemes": [
       "nano",
@@ -334,11 +322,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "meta"
+    ]
   },
   {
     "id": "ornith-ai/ornith-1.5-9b",
+    "owned_by": "ornith",
     "costUsd": 0.01408088,
     "schemes": [
       "nano",
@@ -347,11 +335,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "ornith"
+    ]
   },
   {
     "id": "ornith-ai/ornith-1.5-9b:thinking",
+    "owned_by": "ornith",
     "costUsd": 0.01408088,
     "schemes": [
       "nano",
@@ -360,11 +348,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "ornith"
+    ]
   },
   {
     "id": "poolside/laguna-s-2.1",
+    "owned_by": "poolside",
     "costUsd": 0.01408088,
     "schemes": [
       "nano",
@@ -373,11 +361,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "poolside"
+    ]
   },
   {
     "id": "poolside/laguna-s-2.1:thinking",
+    "owned_by": "poolside",
     "costUsd": 0.01408088,
     "schemes": [
       "nano",
@@ -386,11 +374,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "poolside"
+    ]
   },
   {
     "id": "liquid/lfm-2.5-2.6b",
+    "owned_by": "other",
     "costUsd": 0.01408088,
     "schemes": [
       "nano",
@@ -399,11 +387,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "other"
+    ]
   },
   {
     "id": "meta/muse-spark-1.2-contributor",
+    "owned_by": "meta",
     "costUsd": 0.01408088,
     "schemes": [
       "nano",
@@ -412,11 +400,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "meta"
+    ]
   },
   {
     "id": "gemma-4-12b-it",
+    "owned_by": "google",
     "costUsd": 0.01760044,
     "schemes": [
       "nano",
@@ -425,11 +413,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "google"
+    ]
   },
   {
     "id": "z-ai/glm-5.3-flash",
+    "owned_by": "zhipu",
     "costUsd": 0.01760066,
     "schemes": [
       "nano",
@@ -438,11 +426,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "zhipu"
+    ]
   },
   {
     "id": "bytedance/doubao-seed-character",
+    "owned_by": "doubao",
     "costUsd": 0.02074792,
     "schemes": [
       "nano",
@@ -451,11 +439,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "doubao"
+    ]
   },
   {
     "id": "openai/gpt-oss-safeguard-20b",
+    "owned_by": "openai",
     "costUsd": 0.02112066,
     "schemes": [
       "nano",
@@ -464,11 +452,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
   },
   {
     "id": "stepfun-ai/step-3.5-flash-2603",
+    "owned_by": "stepfun",
     "costUsd": 0.02112088,
     "schemes": [
       "nano",
@@ -477,11 +465,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "stepfun"
+    ]
   },
   {
     "id": "stepfun-ai/step-3.5-flash",
+    "owned_by": "stepfun",
     "costUsd": 0.02112088,
     "schemes": [
       "nano",
@@ -490,11 +478,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "stepfun"
+    ]
   },
   {
     "id": "openai/gpt-oss-20b",
+    "owned_by": "openai",
     "costUsd": 0.02112176,
     "schemes": [
       "nano",
@@ -503,11 +491,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
   },
   {
     "id": "soob3123/amoral-gemma3-27B-v2",
+    "owned_by": "gemini",
     "costUsd": 0.02112264,
     "schemes": [
       "nano",
@@ -516,11 +504,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "gemini"
+    ]
   },
   {
     "id": "soob3123/Veiled-Calla-12B",
+    "owned_by": "organization-owner",
     "costUsd": 0.02112264,
     "schemes": [
       "nano",
@@ -529,11 +517,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "organization-owner"
+    ]
   },
   {
     "id": "openai/gpt-5.6-luna",
+    "owned_by": "openai",
     "costUsd": 0.02162864,
     "schemes": [
       "nano",
@@ -542,11 +530,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
   },
   {
     "id": "openai/gpt-5.6-luna-pro",
+    "owned_by": "openai",
     "costUsd": 0.02162864,
     "schemes": [
       "nano",
@@ -555,11 +543,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
   },
   {
     "id": "openai/gpt-5.4-nano",
+    "owned_by": "openai",
     "costUsd": 0.02252976,
     "schemes": [
       "nano",
@@ -568,11 +556,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
   },
   {
     "id": "nanogpt/coding-router:medium",
+    "owned_by": "nanogpt",
     "costUsd": 0.02464088,
     "schemes": [
       "nano",
@@ -581,11 +569,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "nanogpt"
+    ]
   },
   {
     "id": "gemma-4-26b-a4b-uncensored",
+    "owned_by": "google",
     "costUsd": 0.02675306,
     "schemes": [
       "nano",
@@ -594,11 +582,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "google"
+    ]
   },
   {
     "id": "gemma-4-26b-a4b-uncensored:thinking",
+    "owned_by": "google",
     "costUsd": 0.02675306,
     "schemes": [
       "nano",
@@ -607,11 +595,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "google"
+    ]
   },
   {
     "id": "Gemma-4-26B-A4B-MeroMero",
+    "owned_by": "google",
     "costUsd": 0.02675306,
     "schemes": [
       "nano",
@@ -620,11 +608,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "google"
+    ]
   },
   {
     "id": "Gemma-4-26B-A4B-MeroMero:thinking",
+    "owned_by": "google",
     "costUsd": 0.02675306,
     "schemes": [
       "nano",
@@ -633,11 +621,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "google"
+    ]
   },
   {
     "id": "gemma-4-26b-a4b-it-musica",
+    "owned_by": "google",
     "costUsd": 0.02675306,
     "schemes": [
       "nano",
@@ -646,11 +634,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "google"
+    ]
   },
   {
     "id": "gemma-4-26b-a4b-it-shadowsiren",
+    "owned_by": "google",
     "costUsd": 0.02675306,
     "schemes": [
       "nano",
@@ -659,11 +647,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "google"
+    ]
   },
   {
     "id": "gemma-4-26b-a4b-it-chimerax",
+    "owned_by": "google",
     "costUsd": 0.02675306,
     "schemes": [
       "nano",
@@ -672,11 +660,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "google"
+    ]
   },
   {
     "id": "gemma-4-26b-a4b-it-luminous",
+    "owned_by": "google",
     "costUsd": 0.02675306,
     "schemes": [
       "nano",
@@ -685,11 +673,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "google"
+    ]
   },
   {
     "id": "gemma-4-26b-a4b-it-darksoul",
+    "owned_by": "google",
     "costUsd": 0.02675306,
     "schemes": [
       "nano",
@@ -698,11 +686,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "google"
+    ]
   },
   {
     "id": "gemma-4-26b-a4b-it-moonlight",
+    "owned_by": "google",
     "costUsd": 0.02675306,
     "schemes": [
       "nano",
@@ -711,11 +699,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "google"
+    ]
   },
   {
     "id": "gemma-4-26b-a4b-it-opusdistill",
+    "owned_by": "google",
     "costUsd": 0.02675306,
     "schemes": [
       "nano",
@@ -724,11 +712,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "google"
+    ]
   },
   {
     "id": "ornith-ai/ornith-1.5-35b-a3b",
+    "owned_by": "ornith",
     "costUsd": 0.02816088,
     "schemes": [
       "nano",
@@ -737,11 +725,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "ornith"
+    ]
   },
   {
     "id": "ornith-ai/ornith-1.5-35b-a3b:thinking",
+    "owned_by": "ornith",
     "costUsd": 0.02816088,
     "schemes": [
       "nano",
@@ -750,11 +738,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "ornith"
+    ]
   },
   {
     "id": "gemini-2.5-flash-preview-05-20:thinking",
+    "owned_by": "gemini",
     "costUsd": 0.03154052,
     "schemes": [
       "nano",
@@ -763,11 +751,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "gemini"
+    ]
   },
   {
     "id": "Gemma-4-31B-MeroMero-v2",
+    "owned_by": "google",
     "costUsd": 0.03168088,
     "schemes": [
       "nano",
@@ -776,11 +764,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "google"
+    ]
   },
   {
     "id": "Gemma-4-31B-MeroMero-v2:thinking",
+    "owned_by": "google",
     "costUsd": 0.03168088,
     "schemes": [
       "nano",
@@ -789,11 +777,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "google"
+    ]
   },
   {
     "id": "gemma-4-31b-it-fabled",
+    "owned_by": "google",
     "costUsd": 0.03168088,
     "schemes": [
       "nano",
@@ -802,24 +790,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "google"
-  },
-  {
-    "id": "gemma-4-31b-it-darkidol",
-    "costUsd": 0.03168088,
-    "schemes": [
-      "nano",
-      "nano-exact",
-      "x402-exact",
-      "base-usdc",
-      "x402-solana-usdc",
-      "lightning-l402"
-    ],
-    "owned_by": "google"
+    ]
   },
   {
     "id": "gemma-4-31b-it-garnet",
+    "owned_by": "google",
     "costUsd": 0.03168088,
     "schemes": [
       "nano",
@@ -828,11 +803,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "google"
+    ]
   },
   {
     "id": "gemma-4-31b-it-novelist",
+    "owned_by": "google",
     "costUsd": 0.03168088,
     "schemes": [
       "nano",
@@ -841,11 +816,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "google"
+    ]
   },
   {
     "id": "gemma-4-31b-it-isometry",
+    "owned_by": "google",
     "costUsd": 0.03168088,
     "schemes": [
       "nano",
@@ -854,11 +829,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "google"
+    ]
   },
   {
     "id": "gemma-4-31b-it-gembrain",
+    "owned_by": "google",
     "costUsd": 0.03168088,
     "schemes": [
       "nano",
@@ -867,11 +842,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "google"
+    ]
   },
   {
     "id": "gemma-4-31b-it-gemsicle",
+    "owned_by": "google",
     "costUsd": 0.03168088,
     "schemes": [
       "nano",
@@ -880,11 +855,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "google"
+    ]
   },
   {
     "id": "openai/gpt-5.1-codex-mini",
+    "owned_by": "openai",
     "costUsd": 0.036047,
     "schemes": [
       "nano",
@@ -893,11 +868,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
   },
   {
     "id": "openai/gpt-5-mini",
+    "owned_by": "openai",
     "costUsd": 0.036047,
     "schemes": [
       "nano",
@@ -906,11 +881,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
   },
   {
     "id": "gemini-exp-1206",
+    "owned_by": "gemini",
     "costUsd": 0.04504905,
     "schemes": [
       "nano",
@@ -919,11 +894,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "gemini"
+    ]
   },
   {
     "id": "openai/gpt-oss-120b",
+    "owned_by": "openai",
     "costUsd": 0.05280308,
     "schemes": [
       "nano",
@@ -932,11 +907,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
   },
   {
     "id": "gemini-2.0-pro-exp-02-05",
+    "owned_by": "gemini",
     "costUsd": 0.07171061,
     "schemes": [
       "nano",
@@ -945,11 +920,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "gemini"
+    ]
   },
   {
     "id": "pokee-isaac",
+    "owned_by": "pokee",
     "costUsd": 0.077,
     "schemes": [
       "nano",
@@ -958,11 +933,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "pokee"
+    ]
   },
   {
     "id": "stepfun/step-3.7-flash:thinking",
+    "owned_by": "stepfun",
     "costUsd": 0.08096176,
     "schemes": [
       "nano",
@@ -971,11 +946,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "stepfun"
+    ]
   },
   {
     "id": "openai/gpt-5.4-mini",
+    "owned_by": "openai",
     "costUsd": 0.0811074,
     "schemes": [
       "nano",
@@ -984,11 +959,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
   },
   {
     "id": "anthropic/claude-sonnet-5",
+    "owned_by": "anthropic",
     "costUsd": 0.0901296,
     "schemes": [
       "nano",
@@ -997,11 +972,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "anthropic"
+    ]
   },
   {
     "id": "anthropic/claude-sonnet-5:thinking",
+    "owned_by": "anthropic",
     "costUsd": 0.0901296,
     "schemes": [
       "nano",
@@ -1010,11 +985,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "anthropic"
+    ]
   },
   {
     "id": "anthropic/claude-sonnet-latest",
+    "owned_by": "anthropic",
     "costUsd": 0.0901296,
     "schemes": [
       "nano",
@@ -1023,11 +998,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "anthropic"
+    ]
   },
   {
     "id": "z-ai/glm-5.3-flash-uncensored",
+    "owned_by": "zhipu",
     "costUsd": 0.09856308,
     "schemes": [
       "nano",
@@ -1036,11 +1011,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "zhipu"
+    ]
   },
   {
     "id": "perceptron/perceptron-mk1",
+    "owned_by": "perceptron",
     "costUsd": 0.10560132,
     "schemes": [
       "nano",
@@ -1049,11 +1024,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "perceptron"
+    ]
   },
   {
     "id": "meta/muse-glimmer-30b",
+    "owned_by": "meta",
     "costUsd": 0.10560308,
     "schemes": [
       "nano",
@@ -1062,11 +1037,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "meta"
+    ]
   },
   {
     "id": "z-ai/glm-4.5v",
+    "owned_by": "zhipu",
     "costUsd": 0.12672528,
     "schemes": [
       "nano",
@@ -1075,11 +1050,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "zhipu"
+    ]
   },
   {
     "id": "z-ai/glm-4.5v:thinking",
+    "owned_by": "zhipu",
     "costUsd": 0.12672528,
     "schemes": [
       "nano",
@@ -1088,11 +1063,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "zhipu"
+    ]
   },
   {
     "id": "sofya-research",
+    "owned_by": "sofya",
     "costUsd": 0.13125,
     "schemes": [
       "nano",
@@ -1101,11 +1076,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "sofya"
+    ]
   },
   {
     "id": "nvidia/nemotron-3-ultra-550b-a55b",
+    "owned_by": "nvidia",
     "costUsd": 0.1760044,
     "schemes": [
       "nano",
@@ -1114,11 +1089,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "nvidia"
+    ]
   },
   {
     "id": "nvidia/nemotron-3-ultra-550b-a55b:thinking",
+    "owned_by": "nvidia",
     "costUsd": 0.1760044,
     "schemes": [
       "nano",
@@ -1127,11 +1102,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "nvidia"
+    ]
   },
   {
     "id": "exa-answer",
+    "owned_by": "exa",
     "costUsd": 0.176022,
     "schemes": [
       "nano",
@@ -1140,11 +1115,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "exa"
+    ]
   },
   {
     "id": "tencent/hy4-preview",
+    "owned_by": "tencent",
     "costUsd": 0.17607774,
     "schemes": [
       "nano",
@@ -1153,11 +1128,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "tencent"
+    ]
   },
   {
     "id": "openai/gpt-5",
+    "owned_by": "openai",
     "costUsd": 0.180235,
     "schemes": [
       "nano",
@@ -1166,11 +1141,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
   },
   {
     "id": "openai/gpt-5.1",
+    "owned_by": "openai",
     "costUsd": 0.180235,
     "schemes": [
       "nano",
@@ -1179,11 +1154,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
   },
   {
     "id": "openai/gpt-5.1-codex",
+    "owned_by": "openai",
     "costUsd": 0.180235,
     "schemes": [
       "nano",
@@ -1192,11 +1167,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
   },
   {
     "id": "openai/gpt-5.6-sol",
+    "owned_by": "openai",
     "costUsd": 0.1802416,
     "schemes": [
       "nano",
@@ -1205,11 +1180,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
   },
   {
     "id": "openai/gpt-5.6-sol-pro",
+    "owned_by": "openai",
     "costUsd": 0.1802416,
     "schemes": [
       "nano",
@@ -1218,11 +1193,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
   },
   {
     "id": "longcat-2.0",
+    "owned_by": "longcat",
     "costUsd": 0.2112066,
     "schemes": [
       "nano",
@@ -1231,11 +1206,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "longcat"
+    ]
   },
   {
     "id": "longcat-2.0:thinking",
+    "owned_by": "longcat",
     "costUsd": 0.2112066,
     "schemes": [
       "nano",
@@ -1244,11 +1219,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "longcat"
+    ]
   },
   {
     "id": "abliteration-ai/abliterated-model",
+    "owned_by": "abliteration",
     "costUsd": 0.2112264,
     "schemes": [
       "nano",
@@ -1257,11 +1232,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "abliteration"
+    ]
   },
   {
     "id": "openai/gpt-5.6-terra",
+    "owned_by": "openai",
     "costUsd": 0.2162864,
     "schemes": [
       "nano",
@@ -1270,11 +1245,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
   },
   {
     "id": "openai/gpt-5.6-terra-pro",
+    "owned_by": "openai",
     "costUsd": 0.2162864,
     "schemes": [
       "nano",
@@ -1283,11 +1258,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
   },
   {
     "id": "claw-high",
+    "owned_by": "nanogpt",
     "costUsd": 0.2252888,
     "schemes": [
       "nano",
@@ -1296,11 +1271,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "nanogpt"
+    ]
   },
   {
     "id": "claw-medium",
+    "owned_by": "nanogpt",
     "costUsd": 0.2252888,
     "schemes": [
       "nano",
@@ -1309,11 +1284,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "nanogpt"
+    ]
   },
   {
     "id": "claw-low",
+    "owned_by": "nanogpt",
     "costUsd": 0.2252888,
     "schemes": [
       "nano",
@@ -1322,11 +1297,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "nanogpt"
+    ]
   },
   {
     "id": "hermes-high",
+    "owned_by": "nanogpt",
     "costUsd": 0.2252888,
     "schemes": [
       "nano",
@@ -1335,11 +1310,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "nanogpt"
+    ]
   },
   {
     "id": "hermes-medium",
+    "owned_by": "nanogpt",
     "costUsd": 0.2252888,
     "schemes": [
       "nano",
@@ -1348,11 +1323,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "nanogpt"
+    ]
   },
   {
     "id": "hermes-low",
+    "owned_by": "nanogpt",
     "costUsd": 0.2252888,
     "schemes": [
       "nano",
@@ -1361,11 +1336,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "nanogpt"
+    ]
   },
   {
     "id": "ernie-5.0-thinking-preview",
+    "owned_by": "baidu",
     "costUsd": 0.2464088,
     "schemes": [
       "nano",
@@ -1374,11 +1349,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "baidu"
+    ]
   },
   {
     "id": "openai/gpt-5.2",
+    "owned_by": "openai",
     "costUsd": 0.252329,
     "schemes": [
       "nano",
@@ -1387,11 +1362,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
   },
   {
     "id": "openai/gpt-5.2-codex",
+    "owned_by": "openai",
     "costUsd": 0.252329,
     "schemes": [
       "nano",
@@ -1400,11 +1375,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
   },
   {
     "id": "openai/gpt-5.3-codex",
+    "owned_by": "openai",
     "costUsd": 0.252329,
     "schemes": [
       "nano",
@@ -1413,11 +1388,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
   },
   {
     "id": "linkup-research-low",
+    "owned_by": "linkup",
     "costUsd": 0.2625,
     "schemes": [
       "nano",
@@ -1426,11 +1401,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "linkup"
+    ]
   },
   {
     "id": "openai/gpt-5.4",
+    "owned_by": "openai",
     "costUsd": 0.270358,
     "schemes": [
       "nano",
@@ -1439,11 +1414,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
   },
   {
     "id": "z-ai/glm-5-turbo",
+    "owned_by": "zhipu",
     "costUsd": 0.28161056,
     "schemes": [
       "nano",
@@ -1452,11 +1427,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "zhipu"
+    ]
   },
   {
     "id": "z-ai/glm-5v-turbo",
+    "owned_by": "zhipu",
     "costUsd": 0.28161056,
     "schemes": [
       "nano",
@@ -1465,11 +1440,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "zhipu"
+    ]
   },
   {
     "id": "z-ai/glm-5v-turbo:thinking",
+    "owned_by": "zhipu",
     "costUsd": 0.28161056,
     "schemes": [
       "nano",
@@ -1478,11 +1453,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "zhipu"
+    ]
   },
   {
     "id": "thinkingmachines/inkling",
+    "owned_by": "baseten",
     "costUsd": 0.2851288,
     "schemes": [
       "nano",
@@ -1491,11 +1466,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "baseten"
+    ]
   },
   {
     "id": "thinkingmachines/inkling:thinking",
+    "owned_by": "baseten",
     "costUsd": 0.2851288,
     "schemes": [
       "nano",
@@ -1504,11 +1479,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "baseten"
+    ]
   },
   {
     "id": "meta/muse-spark-1.3",
+    "owned_by": "meta",
     "costUsd": 0.299211,
     "schemes": [
       "nano",
@@ -1517,11 +1492,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "meta"
+    ]
   },
   {
     "id": "meta/muse-spark-1.2",
+    "owned_by": "meta",
     "costUsd": 0.299211,
     "schemes": [
       "nano",
@@ -1530,11 +1505,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "meta"
+    ]
   },
   {
     "id": "meta/muse-spark-1.1",
+    "owned_by": "meta",
     "costUsd": 0.299211,
     "schemes": [
       "nano",
@@ -1543,11 +1518,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "meta"
+    ]
   },
   {
     "id": "qvq-max",
+    "owned_by": "qwen",
     "costUsd": 0.33793056,
     "schemes": [
       "nano",
@@ -1556,11 +1531,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "qwen"
+    ]
   },
   {
     "id": "abliteration-ai/abliterated-model-large",
+    "owned_by": "abliteration",
     "costUsd": 0.352044,
     "schemes": [
       "nano",
@@ -1569,11 +1544,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "abliteration"
+    ]
   },
   {
     "id": "abliteration-ai/abliterated-model-large-v2",
+    "owned_by": "abliteration",
     "costUsd": 0.352044,
     "schemes": [
       "nano",
@@ -1582,11 +1557,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "abliteration"
+    ]
   },
   {
     "id": "brave",
+    "owned_by": "brave",
     "costUsd": 0.352044,
     "schemes": [
       "nano",
@@ -1595,11 +1570,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "brave"
+    ]
   },
   {
     "id": "brave-pro",
+    "owned_by": "brave",
     "costUsd": 0.352044,
     "schemes": [
       "nano",
@@ -1608,11 +1583,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "brave"
+    ]
   },
   {
     "id": "brave-research",
+    "owned_by": "brave",
     "costUsd": 0.352044,
     "schemes": [
       "nano",
@@ -1621,11 +1596,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "brave"
+    ]
   },
   {
     "id": "openai/gpt-5.1-codex-max",
+    "owned_by": "openai",
     "costUsd": 0.36047,
     "schemes": [
       "nano",
@@ -1634,11 +1609,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
   },
   {
     "id": "celeris-1",
+    "owned_by": "celeris",
     "costUsd": 0.4224176,
     "schemes": [
       "nano",
@@ -1647,11 +1622,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "celeris"
+    ]
   },
   {
     "id": "linkup-research-medium",
+    "owned_by": "linkup",
     "costUsd": 0.525,
     "schemes": [
       "nano",
@@ -1660,11 +1635,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "linkup"
+    ]
   },
   {
     "id": "fastgpt",
+    "owned_by": "kagi",
     "costUsd": 0.528066,
     "schemes": [
       "nano",
@@ -1673,11 +1648,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "kagi"
+    ]
   },
   {
     "id": "openai/gpt-5.5",
+    "owned_by": "openai",
     "costUsd": 0.540716,
     "schemes": [
       "nano",
@@ -1686,11 +1661,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
   },
   {
     "id": "openai/gpt-latest",
+    "owned_by": "openai",
     "costUsd": 0.7040176,
     "schemes": [
       "nano",
@@ -1699,11 +1674,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
   },
   {
     "id": "openai/gpt-chat-latest",
+    "owned_by": "openai",
     "costUsd": 0.7040176,
     "schemes": [
       "nano",
@@ -1712,11 +1687,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
   },
   {
     "id": "moonshotai/kimi-k3",
+    "owned_by": "moonshot",
     "costUsd": 0.7040176,
     "schemes": [
       "nano",
@@ -1725,11 +1700,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "moonshot"
+    ]
   },
   {
     "id": "sonar-deep-research",
+    "owned_by": "perplexity",
     "costUsd": 0.95746992,
     "schemes": [
       "nano",
@@ -1738,11 +1713,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "perplexity"
+    ]
   },
   {
     "id": "claude-sonnet-4-5-20250929",
+    "owned_by": "anthropic",
     "costUsd": 1.0560264,
     "schemes": [
       "nano",
@@ -1751,11 +1726,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "anthropic"
+    ]
   },
   {
     "id": "claude-sonnet-4-5-20250929-thinking",
+    "owned_by": "anthropic",
     "costUsd": 1.0560264,
     "schemes": [
       "nano",
@@ -1764,11 +1739,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "anthropic"
+    ]
   },
   {
     "id": "deepclaude",
+    "owned_by": "anthropic",
     "costUsd": 1.0560264,
     "schemes": [
       "nano",
@@ -1777,11 +1752,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "anthropic"
+    ]
   },
   {
     "id": "auto-model-basic",
+    "owned_by": "nanogpt",
     "costUsd": 1.40752476,
     "schemes": [
       "nano",
@@ -1790,11 +1765,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "nanogpt"
+    ]
   },
   {
     "id": "auto-model-standard",
+    "owned_by": "nanogpt",
     "costUsd": 1.40752476,
     "schemes": [
       "nano",
@@ -1803,11 +1778,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "nanogpt"
+    ]
   },
   {
     "id": "auto-model-premium",
+    "owned_by": "nanogpt",
     "costUsd": 1.40752476,
     "schemes": [
       "nano",
@@ -1816,11 +1791,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "nanogpt"
+    ]
   },
   {
     "id": "linkup-research-high",
+    "owned_by": "linkup",
     "costUsd": 1.575,
     "schemes": [
       "nano",
@@ -1829,11 +1804,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "linkup"
+    ]
   },
   {
     "id": "universal-summarizer",
+    "owned_by": "kagi",
     "costUsd": 2.112264,
     "schemes": [
       "nano",
@@ -1842,11 +1817,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "kagi"
+    ]
   },
   {
     "id": "openai/gpt-5-pro",
+    "owned_by": "openai",
     "costUsd": 2.16282,
     "schemes": [
       "nano",
@@ -1855,11 +1830,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
   },
   {
     "id": "sakana/fugu-ultra",
+    "owned_by": "sakana",
     "costUsd": 2.2176462,
     "schemes": [
       "nano",
@@ -1868,11 +1843,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "sakana"
+    ]
   },
   {
     "id": "sakana/fugu-ultra-v1.1",
+    "owned_by": "sakana",
     "costUsd": 2.2176462,
     "schemes": [
       "nano",
@@ -1881,11 +1856,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "sakana"
+    ]
   },
   {
     "id": "linkup-research-xhigh",
+    "owned_by": "linkup",
     "costUsd": 2.625,
     "schemes": [
       "nano",
@@ -1894,11 +1869,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "linkup"
+    ]
   },
   {
     "id": "nanogpt/coding-router:max",
+    "owned_by": "nanogpt",
     "costUsd": 3.520088,
     "schemes": [
       "nano",
@@ -1907,11 +1882,11 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "nanogpt"
+    ]
   },
   {
     "id": "openai/gpt-6-astra",
+    "owned_by": "openai",
     "costUsd": 3.520088,
     "schemes": [
       "nano",
@@ -1920,7 +1895,19 @@
       "base-usdc",
       "x402-solana-usdc",
       "lightning-l402"
-    ],
-    "owned_by": "openai"
+    ]
+  },
+  {
+    "id": "openai/gpt-6-astra-pro",
+    "owned_by": "openai",
+    "costUsd": 3.520088,
+    "schemes": [
+      "nano",
+      "nano-exact",
+      "x402-exact",
+      "base-usdc",
+      "x402-solana-usdc",
+      "lightning-l402"
+    ]
   }
 ]
