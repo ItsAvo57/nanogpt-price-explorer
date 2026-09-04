@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent 01 — AI Pay-per-Query</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #e6edf3; padding: 20px; }
+  .container { max-width: 700px; margin: 0 auto; }
+  h1 { font-size: 1.5em; margin-bottom: 4px; }
+  .subtitle { color: #8b949e; margin-bottom: 24px; font-size: 0.9em; }
+  .step { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; margin-bottom: 16px; }
+  .step h3 { font-size: 1em; color: #58a6ff; margin-bottom: 12px; }
+  textarea { width: 100%; background: #0d1117; border: 1px solid #30363d; border-radius: 6px; padding: 12px; color: #e6edf3; font-size: 0.9em; resize: vertical; min-height: 80px; font-family: inherit; }
+  textarea:focus { outline: none; border-color: #58a6ff; }
+  .cost-display { margin: 12px 0; font-size: 0.95em; }
+  .cost-display .usd { font-weight: 600; font-size: 1.1em; }
+  .cost-display .note { color: #8b949e; font-size: 0.85em; }
+  button { background: #238636; color: #fff; border: none; border-radius: 6px; padding: 12px 24px; cursor: pointer; font-size: 0.95em; font-weight: 600; }
+  button:hover { background: #2ea043; }
+  button:disabled { background: #484f58; cursor: not-allowed; }
+  button.primary { background: #1f6feb; }
+  button.primary:hover { background: #388bfd; }
+  button.danger { background: #da3636; }
+  button.danger:hover { background: #ff4d4d; }
+  #responseArea { background: #0d1117; border: 1px solid #30363d; border-radius: 6px; padding: 16px; margin-top: 12px; min-height: 60px; white-space: pre-wrap; font-size: 0.9em; display: none; }
+  .error { background: #3d1f1f; border: 1px solid #da3636; border-radius: 6px; padding: 12px; margin: 12px 0; color: #ff8b8b; font-size: 0.85em; }
+  .foot { margin-top: 32px; padding-top: 16px; border-top: 1px solid #21262d; color: #8b949e; font-size: 0.85em; text-align: center; }
+  .foot a { color: #58a6ff; }
+  .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid #30363d; border-top-color: #e6edf3; border-radius: 50%; animation: spin .6s linear infinite; margin-right: 8px; vertical-align: middle; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .model-select { background: #0d1117; border: 1px solid #30363d; border-radius: 6px; padding: 10px 12px; color: #e6edf3; font-size: 0.9em; width: 100%; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Agent 01 — AI Pay-per-Query</h1>
+  <p class="subtitle">Pay with USDC (Base) or Nano. One request at a time. No subscription.</p>
+
+  <div class="step">
+    <h3>1. Pick a model</h3>
+    <select id="modelSelect" class="model-select">
+      <option value="gpt-4.1-nano">gpt-4.1-nano (cheapest)</option>
+      <option value="deepseek/deepseek-v4-flash">deepseek/deepseek-v4-flash</option>
+      <option value="claude-sonnet-4-20250514">claude-sonnet-4-20250514</option>
+      <option value="gpt-4.1-mini">gpt-4.1-mini</option>
+    </select>
+  </div>
+
+  <div class="step">
+    <h3>2. What do you want to ask?</h3>
+    <textarea id="promptInput" placeholder="e.g. Explain quantum computing in one paragraph..."></textarea>
+    <div class="cost-display">
+      <span class="usd" id="costDisplay">$0.0072</span>
+      <span class="note"> estimated cost (paid to NanoGPT; no markup)</span>
+    </div>
+    <button id="btnQuote">⟳ Get Quote</button>
+  </div>
+
+  <div id="paymentStep" class="step" style="display:none">
+    <h3>3. Pay via x402</h3>
+    <p style="color:#8b949e;font-size:0.9em;margin-bottom:12px">Send <strong id="payAmount">0.0072 USDC</strong> to the address below, OR click to pay directly.</p>
+    <button id="btnPayBase" class="primary">Pay with USDC (Base) — x402 Exact</button>
+    <button id="btnPayNano" style="background:#d2a8ff;color:#000;margin-left:8px">Pay with Nano</button>
+    <div id="paymentError" class="error" style="display:none;margin-top:12px"></div>
+    <div id="paymentProgress" style="margin-top:12px;display:none"><span class="spinner"></span> Waiting for payment...</div>
+  </div>
+
+  <div id="responseArea"></div>
+
+  <div class="foot">
+    <p>Powered by <a href="https://nano-gpt.com" target="_blank">NanoGPT</a> x402 protocol. No API key stored on this page.</p>
+    <p>Built by Agent 01 — <a href="https://itsavo57.github.io/nanogpt-price-explorer/" target="_blank">Price Explorer</a></p>
+  </div>
+</div>
+
+<script>
+const API = 'https://nano-gpt.com/api/v1/chat/completions';
+let currentQuote = null;
+
+function $(id) { return document.getElementById(id); }
+
+async function getQuote(model, prompt) {
+  const res = await fetch(API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'x-x402': 'true' },
+    body: JSON.stringify({ model, messages: [{role:'user',content:prompt}], stream:false })
+  });
+  if (res.status !== 402) {
+    const data = await res.json();
+    throw new Error(data.error?.message || `Unexpected status ${res.status}`);
+  }
+  return await res.json();
+}
+
+$('btnQuote').addEventListener('click', async () => {
+  const model = $('modelSelect').value;
+  const prompt = $('promptInput').value.trim();
+  if (!prompt) { alert('Enter a prompt first.'); return; }
+
+  $('btnQuote').disabled = true;
+  $('btnQuote').innerHTML = '<span class="spinner"></span> Quoting...';
+
+  try {
+    currentQuote = await getQuote(model, prompt);
+    const usd = parseFloat(currentQuote.payment.amountUsd);
+    $('costDisplay').textContent = '$' + usd.toFixed(6);
+    $('payAmount').textContent = usd.toFixed(6) + ' USDC';
+
+    const baseOpt = currentQuote.payment.accepted.find(a => a.scheme === 'x402-exact');
+    const nanoOpt = currentQuote.payment.accepted.find(a => a.scheme === 'nano-exact' || a.scheme === 'nano');
+
+    $('btnPayBase').style.display = baseOpt ? 'inline-block' : 'none';
+    $('btnPayNano').style.display = nanoOpt ? 'inline-block' : 'none';
+    $('paymentStep').style.display = 'block';
+    $('responseArea').style.display = 'none';
+  } catch(e) {
+    $('costDisplay').textContent = 'Error: ' + e.message;
+  } finally {
+    $('btnQuote').disabled = false;
+    $('btnQuote').textContent = '⟳ Get Quote';
+  }
+});
+
+$('btnPayBase').addEventListener('click', async () => {
+  if (!currentQuote) return;
+  const baseOpt = currentQuote.payment.accepted.find(a => a.scheme === 'x402-exact');
+  if (!baseOpt) { alert('USDC option not available for this quote.'); return; }
+
+  $('paymentError').style.display = 'none';
+  $('paymentProgress').style.display = 'block';
+  $('btnPayBase').disabled = true;
+
+  try {
+    const usdcAmount = parseInt(baseOpt.amount);
+    const to = baseOpt.payTo;
+    const payId = baseOpt.paymentId;
+
+    const paymentPayload = btoa(JSON.stringify({
+      version: '1',
+      scheme: 'x402-exact',
+      network: 'base',
+      asset: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913',
+      amount: usdcAmount.toString(),
+      payTo: to,
+      paymentId: payId
+    }));
+
+    const res = await fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-PAYMENT': paymentPayload },
+      body: JSON.stringify({
+        model: $('modelSelect').value,
+        messages: [{role:'user',content:$('promptInput').value.trim()}],
+        stream: false
+      })
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      const reply = data.choices?.[0]?.message?.content || JSON.stringify(data, null, 2);
+      $('responseArea').textContent = reply;
+      $('responseArea').style.display = 'block';
+      $('paymentStep').style.display = 'none';
+    } else {
+      const err = await res.json();
+      // If payment rejected, show manual instructions
+      if (res.status === 402) {
+        $('paymentError').textContent = 'Payment not yet received. Send ' + baseOpt.amountFormatted + ' USDC to ' + to + ' on Base, then reload the quote and try again.';
+        $('paymentError').style.display = 'block';
+      } else {
+        throw new Error(err.error?.message || 'API returned ' + res.status);
+      }
+    }
+  } catch(e) {
+    $('paymentError').textContent = 'Payment error: ' + e.message;
+    $('paymentError').style.display = 'block';
+  } finally {
+    $('paymentProgress').style.display = 'none';
+    $('btnPayBase').disabled = false;
+  }
+});
+</script>
+</body>
+</html>
